@@ -1,0 +1,18 @@
+
+1. Rethinking Feature Discrimination and Polymerization for Large-scale Recognition （CoCo loss)
+https://arxiv.org/abs/1710.00870
+
+2, NormFace: L2 hypersphere embedding for face verification
+https://arxiv.org/abs/1704.06369
+
+3. Face Recognition via Centralized Coordinate Learning
+https://arxiv.org/abs/1801.05678
+
+
+4. Marginal loss for deep face recognition
+http://openaccess.thecvf.com/content_cvpr_2017_workshops/w33/papers/Deng_Marginal_Loss_for_CVPR_2017_paper.pdf
+
+
+
+样本选取问题：对不同样本应该有不同的对待，要给予难分样本和少量类样本更多的关注，即使loss更大。
+特征归一化就是为了消除偏见

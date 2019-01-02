@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)https://www.leiphone.com/news/201809/HhYrxL5WvkbPWTPd.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<title>循环神经网络的增强方法：注意力机制以及更多 | 雷锋网</title>
+    <meta itemprop="image" content="https://www.leiphone.com/resWeb/images/common/metaLogo.jpg">
+            <link rel="dns-prefetch" href="https://www.leiphone.com/">
+        <link rel="dns-prefetch" href="https://home.leiphone.com/">
+        <link rel="dns-prefetch" href="https://m.leiphone.com/">
+        <link rel="dns-prefetch" href="https://leiphone.com/">
+        <meta name="baidu-site-verification" content="qBnDqyynv4">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2018-09-29T16:40:14+08:00">
+    <meta property="article:author" content="MrBear">
+    <meta property="article:published_first" content="雷锋网, https://www.leiphone.com/news/201809/HhYrxL5WvkbPWTPd.html">
+    	<meta name="google-site-verification" content="4c2S0LRoSpcyGiNmASqakMSa7yVC9C8Jnu-IRNyq5oU">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=1">
+    <meta property="qc:admins" content="10002525706451007656375">
+    <link rel="alternate" media="only screen and(max-width: 640px)" href="https://m.leiphone.com/">
+            	<meta name="keywords" content="注意力机制,深度学习,人工智能,RNN,LSTM,机器学习">
+	<meta name="description" content="除了LSTM和attention，RNN里可谈的还有很多">
+    <meta name="sogou_site_verification" content="ilkqV8FehD">
+    <meta name="renderer" content="webkit">
+	<link rel="cannoical" href="https://www.leiphone.com/news/201809/HhYrxL5WvkbPWTPd.html">    <link rel="stylesheet" type="text/css" href="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/common.css" media="all">
+    <script type="text/javascript" async="" src="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/cmp.api"></script><script src="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/push.js"></script><script async="" src="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/gtm.js"></script><script src="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/hm.js"></script><script type="text/javascript">
+        window.mobilecheck = function() {
+            
+            // var ua=window.navigator.userAgent;
+            // if(ua.indexOf('iPhone')>=0||ua.indexOf('iPod')>=0||ua.indexOf('ndroid')>=0){
+            //     return true;
+            // }
+
+            var check = false;
+            (function(a,b){if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(a)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0,4)))check = true})(navigator.userAgent||navigator.vendor||window.opera);
+            return check;
+        }
+        var check = mobilecheck();
+        if(check && (window.location.host == 'www.leiphone.com')){
+            window.location.href="//m.leiphone.com" + window.location.pathname + window.location.search;
+        }else if(!check && (window.location.host == 'm.leiphone.com')){
+            window.location.href="//www.leiphone.com" + window.location.pathname + window.location.search;
+        }
+    </script>
+    <!--  
+	<script type='text/javascript'>window.BWEUM||(BWEUM={});BWEUM.info = {"stand":true,"agentType":"browser","agent":"bi-collector.oneapm.com/static/js/bw-send-411.4.5.js","beaconUrl":"bi-collector.oneapm.com/beacon","licenseKey":"fqiyF~7R36YyFnEB","applicationID":2284957};</script><script type="text/javascript" src="//bi-collector.oneapm.com/static/js/bw-loader-411.4.5.js"></script>
+	-->
+    <script>
+                    //百度统计开始
+            var _hmt = _hmt || [];
+            (function() {
+                var hm = document.createElement("script");
+                hm.src = "//hm.baidu.com/hm.js?0f7e8686c8fcc36f05ce11b84012d5ee";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+            })();
+            //百度统计结束
+        
+        var SCRIPT_URL 	= "https://www.leiphone.com/";
+		var BASE_URL 	= "https://www.leiphone.com/";
+		var HOME_URL 	= "https://home.leiphone.com/";
+		var IS_LOGIN 	= "1";
+        var LEIPHONE_HOME_URL = USER_CENTER  = "https://home.leiphone.com/";
+        var HAITAO_URL  = "https://haitao.leiphone.com";
+        var TRYOUT_URL  = "https://tryout.igao7.com/";
+        var PRODUCT_URL = "https://product.igao7.com/";
+	</script>
+
+	<!--[if IE]>
+    <script>
+       (function(){var e="abbr, article, aside, audio, canvas, datalist, details, dialog, eventsource, figure, footer, header, hgroup, mark, menu, meter, nav, output, progress, section, time, video".split(', ');var i=e.length;while(i--){document.createElement(e[i])}})()
+    </script>
+    <![endif]-->
+
+    <!--<script src="/resWeb/js/libs/sea.js"></script>-->
+    <script src="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/jquery-sea.js"></script>
+    <script src="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/tips.js"></script><link rel="stylesheet" href="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/tips.css">
+    <script>
+        seajs.config({
+            map:[
+                ['.js','.js?20180515']
+            ]
+        });
+        seajs.use('https://www.leiphone.com/resWeb/js/common/global',function(){
+                    });
+        document.domain = "leiphone.com";
+         // 英鹏账号登录回调
+        function yingpengIslogin_callback(){
+            seajs.use('https://www.leiphone.com/resWeb/js/common/com_login',function(user) {
+              user.init();
+            });
+        }
+    </script>
+
+<script src="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/share.js"></script><script src="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/yp_login.js"></script><link rel="stylesheet" href="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/yp_login.css"><link rel="stylesheet" href="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/share_style0_24.css"><script src="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/share(1).js"></script></head>
+<body>
+<!-- 顶栏广告位 -->
+<div class="top-banner" style="display: block;">
+    <a href="https://www.leiphone.com/banner/updateClickNum/id/1408" target="_blank" title="智能驾驶峰会">
+        <img src="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/5bc44a9f08577.jpg" alt="智能驾驶峰会">
+    </a>
+    <em class="closeBanner"></em>
+</div>
+
+<div class="explorer" id="low-explorer">
+    <div class="inner">
+        <em class="warn ico"></em>
+        <span>您正在使用IE低版浏览器，为了您的雷锋网账号安全和更好的产品体验，强烈建议使用更快更安全的浏览器</span>
+        <span class="ico exp-ico1"></span>
+        <span class="ico exp-ico2"></span>
+        <span class="ico exp-ico3"></span>
+        <span class="ico exp-ico4"></span>
+        <span class="ico exp-ico5"></span>
+    </div>
+</div>
+<!--[if lte IE 8]>
+    <script>
+       (function(){var e=['abbr', 'article', 'aside', 'audio', 'canvas', 'datalist', 'details', 'dialog', 'eventsource', 'figure', 'footer', 'header', 'hgroup', 'mark', 'menu', 'meter', 'nav', 'output', 'progress', 'section', 'time', 'video'];for(var i = e.length; i--;) document.createElement(e[i])})()
+
+       //低版本浏览器
+        document.getElementById("low-explorer").style.display = 'block';
+
+    </script>
+<![endif]-->
+
+
+
+<!-- header start-->
+<header class="yp-header">
+    <div class="yp-header-top clr">
+        <a class="yp-header-logo" href="https://www.leiphone.com/">
+            <img src="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/lph-headerlogo.png" alt="雷锋网">
+                        <span>读懂<em>智能</em>&amp;未来</span>
+        </a>
+        <!-- navi -->
+
+        <div class="yp-header-menu">
+            <ul>
+                <li class="first">
+                    <a href="https://www.leiphone.com/" class="sub_a">首页</a>
+                </li>
+                <li>
+                    <a href="http://www.gair.link/" target="_blank" class="sub_a">AI研习社<em class="newIcon"></em></a>
+                </li>
+                <li>
+                    <a href="https://www.leiphone.com/AiWeights" target="_blank" class="sub_a">AI影响因子</a>
+                </li>
+                <li>
+                    <a href="https://www.leiphone.com/events" class="sub_a">活动</a>
+                </li>
+                <li>
+                    <a href="https://www.leiphone.com/specials" class="sub_a">专题</a>
+                </li>
+                <li>
+                    <a href="https://www.leiphone.com/specialEdition/list" target="_blank" class="sub_a">精选</a>
+                </li>
+                <li class="borleft aiB" style="">
+                <div class="line"></div>
+                    <!-- <a href="http://www.mooc.ai/?f=leiphone"  target="_blank" class="sub_a">AI慕课学院</a> -->
+                </li>
+                <li class="ej borleft ig">
+                    <a href="http://www.igao7.com/" target="_blank" class="sub_a">爱搞机</a>
+                                    </li>
+                <!-- <li  class="ej borleft ig">
+                    <a href="https://haitao.leiphone.com" class="sub_a">极客购</a>
+                </li> -->
+            </ul>
+            <a href="javascript:;" class="contribute"><em></em>申请专栏作者</a>
+        </div>
+        <!-- 用户登录 -->
+        <div class="yp-header-user-box">
+            <div class="yp-header-user"><input type="hidden" id="is_login_tag_status" value="0"><div class="user-main"><div class="avatar"><a href="https://home.leiphone.com/login/wechatLogin"><img width="36" height="36" src="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/noLogin.png" alt=""></a></div></div></div>
+        </div>
+        <!-- 用户消息 -->
+        <div class="yp-header-message">
+            <a href="https://home.leiphone.com/notices" class="bell">
+                 <i class="ico"></i>
+                 <em class="count"></em>   
+            </a>
+        </div>
+        <div class="yp-header-search">
+           <form method="GET" name="allSearchForm" action="https://www.leiphone.com/search" style="height: 100%;">
+                <input type="hidden" name="site" value="">
+                <input class="text" type="text" name="s" autocomplete="off" value="">
+                <input class="submit" type="submit" value="">
+                <input class="submit2" type="submit" value="">
+            </form>
+        </div>
+        <a href="https://www.leiphone.com/search" class="miniSearch"></a>
+        
+    </div>
+</header>   
+<!-- header end-->
+<nav class="yp-secNav">
+    <div class="wrapper">
+        <a href="https://www.leiphone.com/category/sponsor" class=" ">业界</a>
+        <a href="https://www.leiphone.com/category/ai" class=" ">人工智能</a>
+        <a href="https://www.leiphone.com/category/transportation" class=" ">智能驾驶</a>
+        <a href="https://www.leiphone.com/category/aijuejinzhi" class=" ">AI+</a>
+        <a href="https://www.leiphone.com/category/fintech" class=" "> Fintech&amp;区块链</a>
+        <a href="https://www.leiphone.com/category/aihealth" class=" ">未来医疗</a>
+        <a href="https://www.leiphone.com/category/letshome" class=" ">网络安全</a>
+        <a href="https://www.leiphone.com/category/arvr" class=" ">AR/VR</a>
+        <a href="https://www.leiphone.com/category/robot" class=" ">机器人</a>
+        <a href="https://www.leiphone.com/category/yanxishe" class=" ">开发者</a>
+        <a href="https://www.leiphone.com/category/weiwu" class=" ">智能硬件</a>
+        <a href="https://www.leiphone.com/category/iot" class=" ">物联网</a>
+        <a href="https://gair.leiphone.com/?from=leifengwang2018" target="_blank" class="">GAIR</a>
+    </div>
+</nav>
+
+<link rel="stylesheet" type="text/css" href="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/artCont_web_admin.css">
+<link rel="stylesheet" type="text/css" href="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/main.css" media="all">
+<script type="text/javascript">
+    var ARTICLE_CATEGORY = '132';
+    var ADMIN_URL = 'https://yingpeng.leiphone.com/';
+</script>
+
+<div class="wrapper">
+    <div class="lph-Nowsite clr">
+        <a href="https://www.leiphone.com/"><em class="ico"></em></a>
+        <em class="arro"></em>
+        <a href="https://www.leiphone.com/category/ai">人工智能</a>
+        <em class="arro"></em>
+        <a href="https://www.leiphone.com/news/201809/HhYrxL5WvkbPWTPd.html#">正文</a>
+    </div>
+</div>
+
+<!-- 发送私信 -->
+<div class="sendMsg-pop">
+    <a href="javascript:;" class="closePop"><em></em></a>
+    <div class="title">发私信给<span>MrBear</span></div>
+    <div class="main">
+        <textarea placeholder="私信内容"></textarea>
+    </div>
+    <div class="btns">
+        <a href="javascript:;" class="send-button">发送</a>
+    </div>
+</div>
+<!-- 评论数 -->
+<a href="https://www.leiphone.com/news/201809/HhYrxL5WvkbPWTPd.html#lph-comment-179241" class="cmtNums">
+    <em></em>
+    <p>0</p>
+</a>
+<div class="lph-overlay"></div>
+<!-- 当载入markdown的时候加载 -->
+<script type="text/javascript">
+    var link = "HhYrxL5WvkbPWTPd";
+</script>
+<!-- 文章详情页 -->
+<div class="lphArticle-detail" data-article_url="https://www.leiphone.com/news/201809/HhYrxL5WvkbPWTPd.html" data-article_id="179241" data-article_unique="HhYrxL5WvkbPWTPd" data-article_seo_title="循环神经网络的增强方法：注意力机制以及更多 | 雷锋网" data-article_seo_keywords="注意力机制,深度学习,人工智能,RNN,LSTM,机器学习" data-article_seo_description="除了LSTM和attention，RNN里可谈的还有很多" data-comment_type="2" data-collect_type="2" data-author_id="24009" data-author_name="MrBear" data-article_cmtnum="0">
+    <div class="article-template">
+        <div class="article-title">
+            <div class="inner">
+                <h1 class="headTit">
+                    循环神经网络的增强方法：注意力机制以及更多                </h1>
+                <div class="msg">
+                    <table>
+                        <tbody><tr>
+                            <td class="aut">
+                                本文作者：<a href="https://www.leiphone.com/author/MrBear7068" target="_blank" rel="nofollow">MrBear</a>
+                            </td>
+                                                        <td class="td-edit">
+                                编辑：<a href="javascript:void(0)" rel="nofollow">杨晓凡</a>
+                            </td>
+                                                        <td class="time">
+                                2018-09-29 16:40                            </td>
+                                                                                    <!-- <td class="tags">
+                                <em></em> -->
+                                                                                                                            <!-- </td> -->
+                                                      <!--   <td class='cmtNum'>
+                                <a href="https://www.leiphone.com/news/201809/HhYrxL5WvkbPWTPd.html#lph-comment-179241">0条评论</a>
+                            </td> -->
+                        </tr>
+                    </tbody></table>
+                </div>
+                <div class="article-lead">
+                    <em></em>导语：除了LSTM和attention，RNN里可谈的还有很多                </div>
+            </div>
+        </div>
+        <div class="info">
+            <div class="wrapper clr">
+                <div class="article-left">
+                     <div class="lph-article-comView">
+                                                 
+                         <!-- AI影响因子 -->
+                        <!-- xhBPeYDbNuuRZkwy -->
+                                                <!-- AI影响因子 -->
+                        <!-- 正文内容 -->
+                        <p>雷锋网<span style="color:#FD5D3C;">(公众号：雷锋网)</span> AI 科技评论按：一提起 RNN，我们最容易想到的实现就是 LSTM + attention。LSTM 作为经典的网络结构可谓是老当益壮，而另一方面注意力机制过于常见，我们甚至会觉得它是「理所当然的」。但其实注意力机制其实并不是唯一一种网络增强的方式。这篇 Distill.pub 博客的文章就带我们重温了包括注意力在内的多种网络增强方式，它们侧重的方向不一样，也就方便研究/开发人员们按照自己的实际需求进行选取。雷锋网 AI 科技评论编译如下。</p><p>循环神经网络（RNN）是深度学习技术中十分重要的一类模型，它让神经网络能够处理文本、音频和视频等序列数据。人们可以用循环神经网络将一个序列归结为一个高级的理解模式，从而对序列进行标注，甚至从头开始生成一个新的序列。</p><p><img alt="循环神经网络的增强方法：注意力机制以及更多" src="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/5b99b44d5c602.jpg"></p><p>基本的 RNN&nbsp;设计过程需要对棘手的长序列进行处理，但是一种特殊的RNN&nbsp;变体——LSTM（long short-term memory，长短期记忆网络）可以在这种情况下很好地工作。人们发现这些模型十分强大，能够在包括机器翻译、语音识别和图像理解（看图说话）等许多任务中取得非常好的效果。因此，在过去的几年里，循环神经网络已经被广泛使用。&nbsp;</p><p>随着人们对循环神经网络的研究越来越深入，我们已经看到越来越多的人试图用一些新的特性来增强循环神经网络。有四个方向的改进特别令人激动：</p><p><img alt="循环神经网络的增强方法：注意力机制以及更多" src="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/5b99b4617b568.jpg"></p><p>这些技术中，每一项技术都对神经网络有很大的提升。然而，真正炫酷的是，这些技术还能结合在一起使用，而且现有的这些技术似乎都只是广阔的研究空间中的一叶扁舟。此外，它们都依赖于同样的底层技术——注意力机制，从而发挥作用。</p><h3><span style="font-size: 20px; color: #C0504D;">神经图灵机</span></h3><p>神经图灵机[2]&nbsp;将 RNN&nbsp;与外部存储单元相结合。由于向量是自然语言在神经网络中的表现形式，所以存储单元中的内容是一组向量：</p><p><img alt="循环神经网络的增强方法：注意力机制以及更多" src="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/5b99b530d214c.jpg"></p><p>但是对神经图灵机的读写的工作方式是怎样的呢？真正的挑战是，我们需要让它们可微。特别是，我们需要让它们对于我们读和写的位置可微，从而让我们学会在哪里进行读写操作的。由于存储地址在根本上是离散的，要让它们可微是十分困难的。为此，神经图灵机采取了一种很聪明的解决方案：在每一步操作中，它们会在存储单元的所有位置进行读写，只是程度不同而已。</p><p>举例而言，让我们重点关注读操作。RNN&nbsp;并没有指定一个特定的读取位置，而是输出了一个「注意力分布」，它描述了我们对于不同的存储位置关注程度的分布情况。由此得到的读操作的结果就是一个加权和。</p><p><img alt="循环神经网络的增强方法：注意力机制以及更多" src="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/5b99b56a3cdfc.jpg"></p><p>类似地，我们也会以不同程度在存储单元中的各个位置进行写操作。我们再次用一个注意力分布描述我们在每个位置写入了多少内容。我们通过使存储单元中每个位置的新值成为旧存储内容和新写入的值的凸组合来做到这一点，而旧的存储内容和新值之间的位置取决于注意力权重。</p><p><img alt="循环神经网络的增强方法：注意力机制以及更多" src="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/5b99b5aa9f557.jpg"></p><p>但是，神经图灵机是如何确定应该将注意力集中在存储单元的哪些位置上呢？实际上，它们采用了两种不同方法的组合：基于内容的注意力机制和基于位置的注意力机制。基于内容的注意力机制使神经图灵机可以在他们的存储器中进行搜索并重点关注于他们所寻找的目标相匹配的位置，而基于位置的注意力机制则使存储单元中注意力的相对运动成为了可能，使神经图灵机能够循环。</p><p style="text-align: center;"><img alt="循环神经网络的增强方法：注意力机制以及更多" src="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/5b99b5e231ad7.jpg"></p><p>这种读写能力使得神经图灵机能够执行许多简单的算法，而不仅限于神经网络范畴。例如，它们可以学习在存储单元中存放一个长的序列，然后对其反复进行循环操作。当它们这样做的时候，我们可以看到他们在哪些位置执行了读写操作，以便更好地理解他们在做什么：</p><p style="text-align: center;"><img alt="循环神经网络的增强方法：注意力机制以及更多" src="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/5b99b5ff2610c.jpg"></p><p>你可以在[3]中查看更多的实验结果。上图是基于重复的复制实验得出的。</p><p>它们还可以学会模仿查表法，甚至学着对数字进行排序（尽管采取了一些投机取巧的方法）！另一方面，有时他们面对一些很基础的工作也会无能为力，比如对数字进行加法或乘法运算。</p><p>自从最原始的神经图灵机论文发表后，相继涌现了一大批在相关领域取得激动人心的研究进展的论文。神经 GPU[4] 解决了神经图灵机无法对数字进行加法和乘法运算的问。Zaremba&nbsp;和 Sutskever&nbsp;等人[5]使用强化学习代替了最原始的神经图灵机中使用的可微的读写技术来训练神经机器翻译。神经随机存取存储器（NRAM）是基于指针工作的。目前，一些论文已经对栈和队列这种可微的数据结构进行了探究<sup>[7，8]</sup>。而记忆网络<sup>[9，10]</sup>（memory networks）则是另一种解决类似问题的方法。&nbsp;</p><p>从某种客观意义上来讲，这些模型可以执行的许多任务（例如学会如何对数字做加法），并不是十分困难。对于传统的编程技术说，这些任务可以说是小菜一碟。但是神经网络可以处理许多其他的问题，而目前像神经图灵机这样的模型的能力似乎仍然收到了很大限制，没有被完全开发出来。</p><p><strong>代码</strong></p><p>这些模型有许多开源的实现版本。神经图灵机的开源实现有 Taehoon Kim（Tensorflow&nbsp;版，<a href="https://github.com/carpedm20/NTM-tensorflow" target="_blank" rel="nofollow">https://github.com/carpedm20/NTM-tensorflow</a>&nbsp; ）、Shanwn（Theano&nbsp;版，<a href="https://github.com/shawntan/neural-turing-machines" target="_blank" rel="nofollow">https://github.com/shawntan/neural-turing-machines</a>&nbsp; ）、Fumin（Go&nbsp;版，<a href="https://github.com/fumin/ntm" target="_blank" rel="nofollow">https://github.com/fumin/ntm</a>&nbsp; ）、Kai Sheng（Torch&nbsp;版，<a href="https://github.com/kaishengtai/torch-ntm" target="_blank" rel="nofollow">https://github.com/kaishengtai/torch-ntm</a>&nbsp; ）、Snip（Lasagne&nbsp;版，<a href="https://github.com/snipsco/ntm-lasagne" target="_blank" rel="nofollow">https://github.com/snipsco/ntm-lasagne</a>&nbsp; ）等人的版本。神经 GPU 代码是开源的，并已经被 TensorFlow&nbsp;的模型库囊括了进去（<a href="https://github.com/tensorflow/models/tree/master/neural_gpu" target="_blank" rel="nofollow">https://github.com/tensorflow/models/tree/master/neural_gpu</a>&nbsp; ）。记忆网络的开源实现包含Facebook（Torch/Matlab&nbsp;版，<a href="https://github.com/facebook/MemNN" target="_blank" rel="nofollow">https://github.com/facebook/MemNN</a>&nbsp; ）、YerevaNN（Theano&nbsp;版，<a href="https://github.com/YerevaNN/Dynamic-memory-networks-in-Theano" target="_blank" rel="nofollow">https://github.com/YerevaNN/Dynamic-memory-networks-in-Theano</a>&nbsp; ）、Taehoon Kim（TensorFlow&nbsp;版，<a href="https://github.com/carpedm20/MemN2N-tensorflow" target="_blank" rel="nofollow">https://github.com/carpedm20/MemN2N-tensorflow</a>&nbsp; ）等人的版本。</p><h3><span style="font-size: 20px; color: #C0504D;">注意力机制</span></h3><p>当我们翻译一个句子时，我们会特别注意当前翻译的单词。当我们转录一段录音时，我们会仔细听我们正努力写下的章节。如果你要我描述我所坐的房间，我会在描述的时候看看周围的物体。&nbsp;</p><p>神经网络使用注意力机制实现同样的行为，专注于整个环境中所获的的信息的一部分。例如，RNN&nbsp;可以处理另一个 RNN 的输出。在每一个时间步上，带注意力机制的 RNN&nbsp;都会关注另一个 RNN&nbsp;的不同位置上的内容。&nbsp;</p><p>我们希望注意力机制是可微的，这样我们就可以学到重点关注什么位置上的内容。为了做到这一点，我们奖使用和神经图灵机一样的技术：我们关注所有的位置，只是关注的程度不同罢了。</p><p style="text-align: center;"><img alt="循环神经网络的增强方法：注意力机制以及更多" src="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/5b99b68d5a228.jpg"></p><p>注意力分布通常是由基于内容的注意力机制生成的。我们用来操作的RNN&nbsp;会生成一个搜索词描述它想要关注的位置。每一项都会与搜索词进行点乘从而产生一个得分，该得分将描述其与搜索词的匹配程度。这个得分将作为输入送给Softmax&nbsp;函数，用来创建注意力分布。</p><p style="text-align: center;"><img alt="循环神经网络的增强方法：注意力机制以及更多" src="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/5b99b6a5cac7e.jpg"></p><p>在RNN&nbsp;之间应用注意力机制的一个场景是机器翻译<sup>[11]</sup>。一个传统的序列到序列（Seq2Seq）的模型必须将整个输入归结为一个单一的向量，然后将其反向扩展得到翻译结果。注意力机制通过使RNN&nbsp;能够处理输入来传递它所看到的每一个单词信息，然后在生成输出的RNN&nbsp;中将注意力集中在相关的单词上。</p><p><img alt="循环神经网络的增强方法：注意力机制以及更多" src="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/5b99b6b8828ef.jpg"></p><h5 style="text-align: center;">图片来源：Bahdanau&nbsp;等人于2014&nbsp;年发表的论文中的图3（<a href="https://arxiv.org/pdf/1409.0473.pdf" target="_blank" rel="nofollow">https://arxiv.org/pdf/1409.0473.pdf</a>&nbsp; ）</h5><p>这种 RNN&nbsp;之间的注意力机制已经有许多其它的应用场景。它能够在语音识别[12]中被使用，使一个 RNN&nbsp;能够处理音频信息，然后让另一个 RNN&nbsp;能够浏览它，在它生成音频相应的文字时将注意力放在相关的部分上。</p><p><img alt="循环神经网络的增强方法：注意力机制以及更多" src="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/5b99b6cd6cc2a.jpg"></p><h5 style="text-align: center;">图片来源：Chan&nbsp;等人于2015&nbsp;年发表的论文（<a href="https://arxiv.org/pdf/1508.01211.pdf" target="_blank" rel="nofollow">https://arxiv.org/pdf/1508.01211.pdf</a>）。</h5><p>这种注意力机制其它的应用还包括文本解析<sup>[13]</sup>，这时注意力机制让模型能够在生成解析树时对单词进行扫描。而在对话建模<sup>[14]</sup>任务中，注意力机制使模型能在生成回应文字时，重点关注对话前面相关求的内容。&nbsp;</p><p>注意力机制还可以用在卷积神经网络和循环神经网络之间的接口上。这里的注意力机制使 RNN&nbsp;能够在每一步关注图像上的不同位置。这种注意力机制的一个流行的应用场景是「看图说话」。首先，一个卷积网络会对图片进行处理从而抽取高级特征；接着会运行一个 RNN&nbsp;生成对图像的描述。当它生成描述中的每个单词时，RNN&nbsp;会关注卷积神经网络对图像相关部分的解释。我们可以用下图显示地可视化这个过程：</p><p style="text-align: center;"><img alt="循环神经网络的增强方法：注意力机制以及更多" src="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/5b99b6db45493.jpg"></p><h5 style="text-align: center;">图片来源：（arXiv preprint arXiv:1502.03044, Vol 2(3), pp. 5. CoRR.）<br></h5><p>更广泛地说，当我们想要与一个在输出中有重复结构的神经网络对接时，可以使用注意力接口。</p><p>人们发现注意力接口是一种极具通用价值并且十分强大的技术，并且正在被越来越广泛地使用。</p><h3><span style="font-size: 20px; color: #C0504D;">自适应计算时间</span></h3><p>标准的 RNN 在每个时间步上执行相同数量的计算。这似乎并不符合直觉。当然，我们要处理的问题变得更加复杂时，人们是否应该再多考虑考虑呢？此外，标准 RNN&nbsp;还将其操作长度为 n&nbsp;的序列的时间复杂度限制为 O(n)。</p><p>自适应计算时间[15]是一种让 RNN&nbsp;能够在每一步之行不同数量的计算的方法。大体的思路很简单：它让RNN&nbsp;能在每个时间步上进行多步计算。&nbsp;</p><p>为了让网络学习需要计算多少步，我们希望步骤的数量可微。我们用我们曾经使用过的技术来实现这一点：我们并不运行离散数量的步骤，而是对运行的步数使用了一个注意力分布。它的输出是每个步骤的输出的加权组合。</p><p style="text-align: center;"><img alt="循环神经网络的增强方法：注意力机制以及更多" src="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/5b99b71b267b2.jpg"></p><p>上图还忽略了一些更多的细节。下图是在一个时间步上包含三个计算步骤的完整示意图：</p><p style="text-align: center;"><img alt="循环神经网络的增强方法：注意力机制以及更多" src="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/5b99b7263da49.jpg"></p><p>此图描述的计算过程有些复杂，所以让我们一步步地分析它。在高层，我们仍然运行RNN&nbsp;并输出一个状态的加权组合：</p><p style="text-align: center;"><img alt="循环神经网络的增强方法：注意力机制以及更多" src="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/5b99b73cab854.jpg"></p><p>每一个计算步骤的权重都由一个「缓冲神经元」决定。它是一种能够观察RNN&nbsp;的状态并给出一个缓冲权重的sigmoid&nbsp;神经元，我们可以认为它是我们应该在这一步停下来的概率。</p><p style="text-align: center;"><img alt="循环神经网络的增强方法：注意力机制以及更多" src="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/5b99b74d6fce0.jpg"></p><p>我们对于缓冲权重的总预算上限为1，接着我们根据下图最上面一行的计算流程进行计算（从1&nbsp;开始，每一步减去相应的值）。当它变得小于epsilon&nbsp;时，我们就停止计算。</p><p style="text-align: center;"><img alt="循环神经网络的增强方法：注意力机制以及更多" src="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/5b99b759afbcf.jpg"></p><p>当我们停下来时，可能还会有一些在缓冲预算之外还没有计算完的部分，这是因为我们在其小于 epsilon&nbsp;时就会停止计算。我们该如何处理这种情况呢？从技术上讲，它被赋予了未来可以继续计算的步骤，而我们现在并不想计算它，因此我们将现在的状态定义为最后一步。</p><p style="text-align: center;"><img alt="循环神经网络的增强方法：注意力机制以及更多" src="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/5b99b7693ce25.jpg"></p><p>当我们训练自适应计算时间模型时，可以在损失函数中添加一项「思考成本」（ponder cost），用来惩罚模型的累积计算时间。这一项越大，就会更加因为降低计算时间而降低性能，达到折中的目的。</p><p>自适应计算时间是一种非常新的想法，但是我们相信它和类似的思想都是非常重要的。</p><p><strong>代码</strong></p><p>目前唯一的「自适应计算时间」模型的开源代码似乎是Mark Neumann的版本（TensorFlow&nbsp;版，<a href="https://github.com/DeNeutoy/act-tensorflow" target="_blank" rel="nofollow">https://github.com/DeNeutoy/act-tensorflow</a>）。&nbsp;</p><h3><span style="font-size: 20px; color: #C0504D;">神经网络编程器</span></h3><p>神经网络在许多任务上的表现都非常出色，但它们又是也很难做到一些基本的事情。比如算术对于神经网络就很困难，而这对于普通的计算方法是轻而易举的。如果有一种方法可以将神经网络与普通的编程方法融合在一起，就会取得最大的双赢局面。</p><p>神经网络编程器[16]是一种解决该问题的方法。它会学着创建程序来解决这个问题。事实上，它能在不需要正确的程序实例范本的情况下生成这样的程序。它会发现要想完成某种任务，做为手段，需要如何生产出程序。</p><p>论文中实际的模型通过生成类 SQL&nbsp;程序查询表格来回答这个问题。然而，这种环境下的大量细节让它变得有些复杂。所以我们不妨从想象一个稍微简单一点的模型开始，它给出了一个算术表达式，并生成了一个模型来评估它。</p><p>生成的程序是一个操作序列。每个操作都被定义为对过去操作的输出进行操作。因此，一个操作可能类似于「将两步前的操作的输出和一步前的操作的输出相加」。它更像是一个Unix&nbsp;管道，而不是一个拥有被赋值并被读取的变量的程序。</p><p style="text-align: center;"><img alt="循环神经网络的增强方法：注意力机制以及更多" src="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/5b99b785c1345.jpg"></p><p>该程序由控制器RNN&nbsp;一次生成一个操作。在每个步骤中，控制器RNN都会输出下一个操作应该是什么的概率分布。例如，这个概率可以用来模拟：我们可能非常确定我们想要在第一个时间步上执行加法，然后在决定我们是否需要在第二步执行乘法或除法的时候会很艰难，等等…</p><p style="text-align: center;"><img alt="循环神经网络的增强方法：注意力机制以及更多" src="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/5b99b79155779.jpg"></p><p>现在，最终得出的操作的分布可以被我们评估。我们并不是在每一步运行一个操作，而是采用了普遍使用的注意力技巧，同时运行所有的操作，再根据我们执行这些操作的概率作为权重对所有的输出一起取平均。</p><p style="text-align: center;"><img alt="循环神经网络的增强方法：注意力机制以及更多" src="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/5b99b79b479c1.jpg"></p><p>只要我们能够通过这些操作定义导数，程序的输出在概率上就是可微的。接着，我们可以定义一个损失函数，训练神经网络生成给出正确答案的程序。这样一来，神经网络编程器就学会了在没有正确程序范例的情况下生成程序。唯一的监督信息就是程序应该产生的返回值。</p><p>这就是神经网络编程器的核心思想，但是论文中的版本回答了关于表的问题，而不是关于算术表达式。下面我们还将给出一些实用的小技巧：</p><ul class=" list-paddingleft-2" style="list-style-type: disc;"><li><p>多种数据类型：神经网络编程器中的许多操作都会处理除标量值之外的其他类型的数据。一些操作输出选中的表的列或者选中的单元格。只有相同类型的输出才能被合并到一起。</p></li><li><p>参考输入：神经网络编程器需要回答类似于「有多少个人口超过1&nbsp;百万人的城市？」为了使回答这种问题更加容易，一些操作允许网络参考他们正在回答的问题中的常量，或者列的名字。这种参考是由于注意力机制发生的，就像指针网络<sup>[17]</sup>。</p></li></ul><p>神经网络编程器并不是让神经网络生成程序的唯一途径。另一种好方法是神经网络编程器-解释器<sup>[18]</sup>，他可以完成很多有趣的任务，但是需要正以确程序作为监督信息。</p><p>我们认为，这种弥合传统编程和神经网络之间差距的一般空间是非常重要的。虽然神经网络编程器显然不是最终的解决方案，我单们认为有很多重要的经验教训可以从中学到。</p><p><strong>代码</strong></p><p>最新版本的用于问答的神经网络编程器（<a href="https://openreview.net/pdf?id=ry2YOrcge" target="_blank" rel="nofollow">https://openreview.net/pdf?id=ry2YOrcge</a>&nbsp; ）已经被其作者开源，并且可以作为 TensorFlow&nbsp;模型获取（<a href="https://github.com/tensorflow/models/tree/master/neural_programmer" target="_blank" rel="nofollow">https://github.com/tensorflow/models/tree/master/neural_programmer</a>&nbsp; ）。而神经网络编程器-解释器也有由Ken Morishita编写的Keras&nbsp;版本（<a href="https://github.com/mokemokechicken/keras_npi" target="_blank" rel="nofollow">https://github.com/mokemokechicken/keras_npi</a>&nbsp; ）。</p><h3><span style="font-size: 20px; color: #C0504D;">整体把握</span></h3><p>从某种意义上说，一个人类拿着一张纸，比没有纸的人聪明得多。一个有数学符号的人可以解决他们不能解决的问题。使用电脑使我们能够做出不可思议的壮举，否则它们将远远超出我们的能力范围。</p><p>一般来说，很多有趣的智力形式似乎是人类的创造性启发式直觉和一些更加直观具体的媒介之间的相互作用，如语言或方程式。有时，媒介是客观存在的东西，为我们储存信息，防止我们犯错误，或者执行繁琐的计算任务。在其他情况下，媒介是我们在脑海中操纵的一个模型。无论如何，这对于智能来说都是至关重要的。</p><p>最近机器学习的结果已经开始有了这种味道，将神经网络的直觉和其他东西结合起来。其中一种方法就是人们所说的「启发式搜索」。例如，AlphaGo<sup> [19]</sup>有一个关于围棋如何工作的模型，并且探索了在神经网络直觉指导下如何玩这个游戏的模型。类似地，DeepMath<sup> [20]</sup>利用神经网络表征操作数学表达式的直觉。我们在本文中谈到的「增强的RNN」是另一种方法，将RNN&nbsp;连接到专门设计的媒介上，以提高它们的泛化能力。</p><p>与媒介的相互作用自然包括「采取一系列行动、进行观察、再采取进一步的行动」。在这里，我们面临着一个巨大的挑战：我们如何学习应该采取怎样的行动？这听起来是个强化学习问题，我们当然可以采用这样的做法。但是，强化学习技术实际上是解决该问题最复杂的版本，而且这种解决方案很难使用。注意力机制的精妙之处在于，它使我们能够更容易地通过对部分位置以不同程度执行所有的动作来解决这个问题。这是因为我们可以设计像神经图灵机这样的存储结构使我们能进行细微的操作，并且使该问题可微。强化学习让我们采取一条单一的解决路径，并且试着从中学到知识。注意力机制则在每一个选择的交叉口采取了各个方向的动作，并最终将各条路径的结果合并在一起。</p><p>注意力机制的一个主要的缺点是，我们必须在每一步上采取「动作」。由于我们会进行进行增加神经图灵机中的存储单元等操作，这会导致计算开销直线上升。可以想到的解决方法就是让你的注意力模型变得稀疏一些，这样以来你就只需要对一部分存储单元进行操作。然而，这仍然是具有挑战性的，因为你可能想要让你的注意力模型依赖于存储单元的内容，而这样做会令你不得不查看每一个存储单元。我们已经观察到，目前有一些初步的工作在常识解决这个问题，例如[21]&nbsp;，但是似乎还有许多工作有待探索。如果我们真的能做出这样的在次线性时间复杂度内的注意力机制的工作，这种模型会变得非常强大！</p><p>增强的循环神经网络和注意力机制的底层技术是如此令人激动！我们期待着这个领域有更多的新技术涌现出来！</p><p><strong>参考文献</strong></p><p>1. Understanding LSTM Networks&nbsp; [link]（http://colah.github.io/posts/2015-08-Understanding-LSTMs）<br>Olah, C., 2015.</p><p>2. Neural Turing Machines<br>Graves, A., Wayne, G. and Danihelka, I., 2014. CoRR, Vol abs/1410.5401.</p><p>3. Show, attend and tell: Neural image caption generation with visual attention&nbsp;<br>Xu, K., Ba, J., Kiros, R., Cho, K., Courville, A., Salakhutdinov, R., Zemel, R.S. and Bengio, Y., 2015. arXiv preprint arXiv:1502.03044, Vol 2(3), pp. 5. CoRR.</p><p>4. Neural GPUs Learn Algorithms<br>Kaiser, L. and Sutskever, I., 2015. CoRR, Vol abs/1511.08228.</p><p>5. Reinforcement Learning Neural Turing Machines<br>Zaremba, W. and Sutskever, I., 2015. CoRR, Vol abs/1505.00521.</p><p>6. Neural Random-Access Machines&nbsp;<br>Kurach, K., Andrychowicz, M. and Sutskever, I., 2015. CoRR, Vol abs/1511.06392.</p><p>7. Learning to Transduce with Unbounded Memory&nbsp;<br>Grefenstette, E., Hermann, K.M., Suleyman, M. and Blunsom, P., 2015. Advances in Neural Information Processing Systems 28, pp. 1828—1836. Curran Associates, Inc.</p><p>8. Inferring Algorithmic Patterns with Stack-Augmented Recurrent Nets&nbsp;<br>Joulin, A. and Mikolov, T., 2015. Advances in Neural Information Processing Systems 28, pp. 190—198. Curran Associates, Inc.</p><p>9. Memory Networks&nbsp;<br>Weston, J., Chopra, S. and Bordes, A., 2014. CoRR, Vol abs/1410.3916.</p><p>10. Ask Me Anything: Dynamic Memory Networks for Natural Language Processing&nbsp;<br>Kumar, A., Irsoy, O., Su, J., Bradbury, J., English, R., Pierce, B., Ondruska, P., Gulrajani, I. and Socher, R., 2015. CoRR, Vol abs/1506.07285.</p><p>11. Neural machine translation by jointly learning to align and translate&nbsp;<br>Bahdanau, D., Cho, K. and Bengio, Y., 2014. arXiv preprint arXiv:1409.0473.</p><p>12. Listen, Attend and Spell&nbsp;<br>Chan, W., Jaitly, N., Le, Q.V. and Vinyals, O., 2015. CoRR, Vol abs/1508.01211.</p><p>13. Grammar as a foreign language&nbsp;<br>Vinyals, O., Kaiser, L., Koo, T., Petrov, S., Sutskever, I. and Hinton, G., 2015. Advances in Neural Information Processing Systems, pp. 2773—2781.</p><p>14. A Neural Conversational Model&nbsp;<br>Vinyals, O. and Le, Q.V., 2015. CoRR, Vol abs/1506.05869.</p><p>15. Adaptive Computation Time for Recurrent Neural Networks&nbsp;<br>Graves, A., 2016. CoRR, Vol abs/1603.08983.</p><p>16. Neural Programmer: Inducing Latent Programs with Gradient Descent<br>Neelakantan, A., Le, Q.V. and Sutskever, I., 2015. CoRR, Vol abs/1511.04834.</p><p>17. Pointer networks&nbsp;<br>Vinyals, O., Fortunato, M. and Jaitly, N., 2015. Advances in Neural Information Processing Systems, pp. 2692—2700.</p><p>18. Neural Programmer-Interpreters<br>Reed, S.E. and Freitas, N.d., 2015. CoRR, Vol abs/1511.06279.</p><p>19. Mastering the game of Go with deep neural networks and tree search<br>Silver, D., Huang, A., Maddison, C.J., Guez, A., Sifre, L., Driessche, G.v.d., Schrittwieser, J., Antonoglou, I., Panneershelvam, V., Lanctot, M., Dieleman, S., Grewe, D., Nham, J., Kalchbrenner, N., Sutskever, I., Lillicrap, T., Leach, M., Kavukcuoglu, K., Graepel, T. and Hassabis, D., 2016. Nature, Vol 529(7587), pp. 484—489. Nature Publishing Group.&nbsp;DOI: 10.1038/nature16961</p><p>20. DeepMath - Deep Sequence Models for Premise Selection&nbsp;<br>Alemi, A.A., Chollet, F., Irving, G., Szegedy, C. and Urban, J., 2016. CoRR, Vol abs/1606.04442.</p><p>21. Learning Efficient Algorithms with Hierarchical Attentive Memory&nbsp;<br>Andrychowicz, M. and Kurach, K., 2016. CoRR, Vol abs/1602.03218.</p><p>via&nbsp;<a href="https://distill.pub/2016/augmented-rnns/" target="_blank" rel="nofollow">distill</a>，雷锋网 AI 科技评论编译</p>
+                                                <p>雷锋网原创文章，未经授权禁止转载。详情见<a href="http://dwz.cn/4ErMxZ" rel="nofollow" target="_blank">转载须知</a>。</p>
+                                               
+                                                <!-- 正文内容结束 -->
+                    </div>
+
+                    <!-- 分享 -->
+                    <div class="pageActive clr">
+                        <div class="mark-like-btn ">
+                            <a class="collect collect-no" href="javascript:;"><i></i><span>1</span>人收藏</a>
+                        </div>
+                        <!-- Baidu Button BEGIN -->
+                        <div class="bdsharebuttonbox bdshare-button-style0-24" data-tag="share_179241" data-bd-bind="1540176880031">
+                            <span class="s-txt">分享：</span>
+                            <a href="javascript:void()" onclick="openYNote(&#39;https://www.leiphone.com/news/201809/HhYrxL5WvkbPWTPd.html&#39;,&#39;循环神经网络的增强方法：注意力机制以及更多&#39;, &#39;https://static.leiphone.com/uploads/new/article/pic/201810/5bb86d2a4ec7e.jpg&#39;,&#39;leiphone&#39;,&#39;循环神经网络的增强方法：注意力机制以及更多&#39;)" class="youdao " title="收藏此篇文章到有道云笔记"><i></i></a>
+                            <a class="bds_tsina weibo-btn  " data-cmd="tsina" title="分享到新浪微博"></a>
+                            <a class="weixin-btn bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+                            <a class="bds_more more-btn" data-cmd="more"></a>
+                        </div>
+                        <script type="text/javascript">
+                            //在这里定义bds_config
+                            // var bds_config = {'snsKey':{'tsina':'2475906690'}};
+                            // var qcode = {
+                            //     api : "http://qr.liantu.com/api.php?text=",
+                            //     url :  window.location.href,
+                            //     exist : false,
+                            //     create : function(){
+                            //         if(!this.exist){
+                            //             var image = document.createElement('img');
+                            //             image.src = this.api + this.url;
+                            //             image.width = 120;
+                            //             this.exist = true;
+                            //             return image;
+                            //         }
+                            //     }
+                            // };
+                        </script>
+
+                    </div>
+                    <!-- 相关文章 -->
+                    <!-- 相关文章 start -->
+<div class="realted-article clr">
+    <div class="title clr">
+        <span class="fl">相关文章</span>
+    </div>
+    <div class="related-link clr">
+                         <a href="https://www.leiphone.com/tag/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6" target="_blank" title="注意力机制">注意力机制</a>
+                 <a href="https://www.leiphone.com/tag/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0" target="_blank" title="深度学习">深度学习</a>
+                 <a href="https://www.leiphone.com/tag/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD" target="_blank" title="人工智能">人工智能</a>
+                 <a href="https://www.leiphone.com/tag/RNN" target="_blank" title="RNN">RNN</a>
+                 <a href="https://www.leiphone.com/tag/LSTM" target="_blank" title="LSTM">LSTM</a>
+                 <a href="https://www.leiphone.com/tag/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0" target="_blank" title="机器学习">机器学习</a>
+                     </div>
+    <div class="list">
+        <ul>
+                        <li class="first">
+                <a href="https://www.leiphone.com/news/201807/Rd0Htxv1wE7DY490.html" target="_blank" class="pic">
+                    <img src="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/5b617d57ec58a.png" alt="" width="170" height="100">
+                </a>
+                <div class="txt">
+                    <a href="https://www.leiphone.com/news/201807/Rd0Htxv1wE7DY490.html" target="_blank">如何使用注意力模型生成图像描述？</a>
+                </div>
+            </li>
+                        <li>
+                <a href="https://www.leiphone.com/news/201807/uSouSPIZzGQ7vp6O.html" target="_blank" class="pic">
+                    <img src="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/5b51b12069d12.jpg" alt="" width="170" height="100">
+                </a>
+                <div class="txt">
+                    <a href="https://www.leiphone.com/news/201807/uSouSPIZzGQ7vp6O.html" target="_blank">美图云联合中科院，提出基于交互感知注意力机制神经 ...</a>
+                </div>
+            </li>
+                        <li>
+                <a href="https://www.leiphone.com/news/201712/R205xrxvDC5FFKvj.html" target="_blank" class="pic">
+                    <img src="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/5a3750c59753f.jpg" alt="" width="170" height="100">
+                </a>
+                <div class="txt">
+                    <a href="https://www.leiphone.com/news/201712/R205xrxvDC5FFKvj.html" target="_blank">百度AAAI 2018录用论文：基于注意力机制的多通道机器 ...</a>
+                </div>
+            </li>
+                        <li>
+                <a href="https://www.leiphone.com/news/201708/hiQQTrEZlOYN8CCt.html" target="_blank" class="pic">
+                    <img src="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/598d1d8c0dd74.png" alt="" width="170" height="100">
+                </a>
+                <div class="txt">
+                    <a href="https://www.leiphone.com/news/201708/hiQQTrEZlOYN8CCt.html" target="_blank">中科院计算所王永庆详解IJCAI 17录用论文：如何用注 ...</a>
+                </div>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+<!-- 相关文章 end -->
+
+
+                    <!-- 推荐文章 -->
+                    <div class="realted-article clr recmdArticle" data-article_id="179241">
+                        <div class="list">
+                            <ul>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- 广告 -->
+                    
+                    <!-- 文章 评论  -->
+                    <!-- 评论 -->
+<div class="article-comment lp-comment" id="lph-comment-179241">
+    <div class="useComJs">
+        <!-- <input id="lp_item_id" type="hidden" name="item_id" value="179241">
+        <input id="lp_item_type" type="hidden" name="type" value="2"> -->
+
+        <div class="h2 clr">
+            <h2>文章点评：</h2>
+            <!-- <strong class="h2-tip">
+                （您需要<a class="c-log" href="javascript:openPop('#lp-login-pop');">登录</a>后才能评论 <a href="https://home.leiphone.com/main/register" class="c-reg">没有账号</a> ？）</strong>
+            -->        
+        </div>
+        <div class="submit clr commentForm" id="">
+            <div class="text">
+                <textarea name="Comment[content]" placeholder="我有话要说……"></textarea>
+            </div>
+            <div class="sub clr publishtosina">
+                <span class="emotionc emotion0" data-emotion="0">表情</span>
+                <label><input id="" type="checkbox" name="pushForWeibo"> 同步到新浪微博</label>
+                <div class="qqFace" style="position:absolute; display:none; z-index:10"></div>
+                <button type="submit" title="提交">提交</button>
+            </div>
+        </div>
+        <!-- <div class="jcWords">
+            <h3><strong>精彩评论</strong></h3>
+            <ul class="comment-say">
+                
+            </ul>
+        </div>
+        <div class="words">
+            <h3><strong>最新评论</strong><span></span>条评论<i></i></h3>
+            <ul class="comment-say">
+                
+            </ul>
+            <div id="comment-say-more" class="comment-say-more">
+
+                <span>加载更多</span>
+                <em>没有更多了</em>
+
+            </div>
+        </div> -->
+    </div>
+				<div class="article-comment-container" data-item-id="-1" data-type-id="2">														</div>		</div>
+<!-- 评论 -->
+
+
+
+                </div>
+
+                <script>
+    var codeAuthor_id   = "MrBear7068";
+    var author_id       = "24009";
+</script>
+<div class="article-right" style="height: 15480px; box-sizing: border-box; position: relative;">
+        <div class="aboutAur-main">
+        <div class="aboutAur-msg">
+            <a href="https://www.leiphone.com/author/MrBear7068" class="avater" target="_blank" rel="nofollow">
+                <img src="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/60_avatar_pic_100_100.jpg" alt="" width="80" height="80">
+            </a>
+            <div class="name">
+                <a href="https://www.leiphone.com/author/MrBear7068" target="_blank" rel="nofollow"><span>MrBear</span><em class="gold"></em></a>
+            </div>
+            <p class="profession">知情人士</p>
+            <div class="saying">
+                <em class="l-quote"></em>
+                <span></span>
+                <em class="r-quote"></em>
+            </div>
+            <div class="operate-btn">
+                <table>
+                    <tbody><tr>
+                                                                        <td>
+                            <a href="mailto:328536427@qq.com" class="eml sub_a" rel="nofollow"><em></em></a>
+                        </td>
+                                                                    </tr>
+                </tbody></table>
+            </div>
+            <div class="btns">
+                <a href="javascript:;">发私信</a>
+            </div>
+        </div>
+
+
+        <!-- 作者的文章 -->
+        
+<div class="mouthHot-article">
+    <div class="title">当月热门文章</div>
+        <div class="list">
+            <ul>
+                        <li>
+                <a href="https://www.leiphone.com/news/201810/XaxbBhHOG93ZlYcd.html" title="面对未知分类的图像，我要如何拯救我的分类器" target="_blank">面对未知分类的图像，我要如何拯救我的分类器</a>
+            </li>
+                        <li>
+                <a href="https://www.leiphone.com/news/201809/HrLaRjuXthieZSYc.html" title="MIT周博磊团队：时序关系网络帮助计算机填补视频帧之间的空白" target="_blank">MIT周博磊团队：时序关系网络帮助计算机填补视频帧之间的空白</a>
+            </li>
+                        <li>
+                <a href="https://www.leiphone.com/news/201810/GW0sPLops8Vx4qMu.html" title="学术青年如何克服拖延症——5条技巧助你前进" target="_blank">学术青年如何克服拖延症——5条技巧助你前进</a>
+            </li>
+                        <li>
+                <a href="https://www.leiphone.com/news/201809/HhYrxL5WvkbPWTPd.html" title="循环神经网络的增强方法：注意力机制以及更多" target="_blank">循环神经网络的增强方法：注意力机制以及更多</a>
+            </li>
+                    </ul>
+    </div>
+</div>
+       <!-- 作者文章结束 -->
+    </div>
+
+            
+        
+<div style="width: 255px; position: fixed; top: 0px;"><div class="weekly-choice hotNew-article">
+        <div class="rComTitle">
+            最新文章
+        </div>
+        <div class="list">
+            <ul class="justTxt">
+                                    <li>
+                        <a href="https://www.leiphone.com/news/201810/APQnejNOHAPpl6bJ.html" target="_blank">
+                            <em></em>一张 AI 的「自画像」 </a>
+                    </li>
+                                    <li>
+                        <a href="https://www.leiphone.com/news/201810/GW0sPLops8Vx4qMu.html" target="_blank">
+                            <em></em>学术青年如何克服拖延症——5条技巧助你前进 </a>
+                    </li>
+                                    <li>
+                        <a href="https://www.leiphone.com/news/201809/vHx1GVEd4akt2dcO.html" target="_blank">
+                            <em></em>张镇平：基于在线评论的用户需求感知 | AI 研习社第 77 期大讲堂 </a>
+                    </li>
+                                    <li>
+                        <a href="https://www.leiphone.com/news/201810/GSFecOk6XZyAavYA.html" target="_blank">
+                            <em></em>专访京东副总裁翁志：全方位解读 CNCC 2018「数据开创商业新生态」技术论坛 | CNCC 2018 </a>
+                    </li>
+                                    <li>
+                        <a href="https://www.leiphone.com/news/201810/QjUpvFisKxK8MMG5.html" target="_blank">
+                            <em></em>吴博：目标检测集成框架在医学图像 AI 辅助分析中的应用 | AI 研习社第 78 期大讲堂 </a>
+                    </li>
+                                    <li>
+                        <a href="https://www.leiphone.com/news/201810/teqSK38vNg2IONQU.html" target="_blank">
+                            <em></em>正则表达式教程：实例速查  </a>
+                    </li>
+                            </ul>
+        </div>
+    </div><div class="serKesy-list">
+    <div class="rComTitle">
+        热门搜索
+    </div>
+    <div class="list clr">
+                <a href="https://www.leiphone.com/tag/iPhone" target="_blank">iPhone</a>
+                <a href="https://www.leiphone.com/tag/%E6%99%BA%E8%83%BD%E7%94%B5%E8%A7%86" target="_blank">智能电视</a>
+                <a href="https://www.leiphone.com/tag/Groupon" target="_blank">Groupon</a>
+                <a href="https://www.leiphone.com/tag/%E5%8F%91%E5%B8%83%E4%BC%9A" target="_blank">发布会</a>
+                <a href="https://www.leiphone.com/tag/%E6%B8%B8%E6%88%8F" target="_blank">游戏</a>
+                <a href="https://www.leiphone.com/tag/itunes" target="_blank">itunes</a>
+                <a href="https://www.leiphone.com/tag/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90" target="_blank">数据分析</a>
+                <a href="https://www.leiphone.com/tag/%E9%99%8C%E9%99%8C" target="_blank">陌陌</a>
+                <a href="https://www.leiphone.com/tag/%E4%BA%91%E5%AD%98%E5%82%A8" target="_blank">云存储</a>
+                <a href="https://www.leiphone.com/tag/%E5%BC%80%E6%BA%90%E7%A1%AC%E4%BB%B6" target="_blank">开源硬件</a>
+                <a href="https://www.leiphone.com/tag/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98" target="_blank">微信支付</a>
+            </div>
+</div></div></div>
+
+
+
+            </div>
+        </div>
+    </div>
+    <div class="lineBg"></div>
+    <!-- 百度分享 -->
+    <script>
+
+        window._bd_share_config = {
+            common:{
+                bdMiniList:['tsina','weixin','more']
+            },
+            share : [
+                {
+                    bdText : '循环神经网络的增强方法：注意力机制以及更多',
+                    bdDesc : '循环神经网络的增强方法：注意力机制以及更多',
+                    bdUrl : 'https://www.leiphone.com/news/201809/HhYrxL5WvkbPWTPd.html',
+                    bdPic : 'https://static.leiphone.com/uploads/new/article/pic/201810/5bb86d2a4ec7e.jpg',
+                    "tag" : "share_179241",
+                    "bdSize" : 24
+                },
+            ],
+        }
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='https://www.leiphone.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+
+    </script>
+</div><!-- 当载入markdown的时候加载 -->
+
+<!-- 文章详情页 -->
+<div class="lphArticle-detail" data-article_url="https://www.leiphone.com/news/201809/VZHmxeGAjP7JgZKk.html?uniqueCode=HhYrxL5WvkbPWTPd" data-article_id="179639" data-article_unique="VZHmxeGAjP7JgZKk" data-article_seo_title="Intel再投10亿美元提升14nm产能，不过要等到明年二季度才能见效 | 雷锋网" data-article_seo_keywords="" data-article_seo_description="不过需要注意的一点是，对晶圆厂投资通常以月为单位，目前的任何投资都不太可能在明年第一季度结束前切实提高晶圆厂的产量" data-comment_type="2" data-collect_type="2" data-author_id="24028" data-author_name="任然" data-article_cmtnum="0">
+    <div class="article-template">
+        <div class="article-title">
+            <div class="inner">
+                <h1 class="headTit">
+                    Intel再投10亿美元提升14nm产能，不过要等到明年二季度才能见效                </h1>
+                <div class="msg">
+                    <table>
+                        <tbody><tr>
+                            <td class="aut">
+                                本文作者：<a href="https://www.leiphone.com/author/renran255" target="_blank" rel="nofollow">任然</a>
+                            </td>
+                                                        <td class="time">
+                                2018-09-29 15:35                            </td>
+                                                                                  <!--   <td class='cmtNum'>
+                                <a href="https://www.leiphone.com/news/201809/VZHmxeGAjP7JgZKk.html#lph-comment-179639">0条评论</a>
+                            </td> -->
+                        </tr>
+                    </tbody></table>
+                </div>
+                <div class="article-lead">
+                    <em></em>导语：不过需要注意的一点是，对晶圆厂投资通常以月为单位，目前的任何投资都不太可能在明年第一季度结束前切实提高晶圆厂的产量                </div>
+            </div>
+        </div>
+        <div class="info">
+            <div class="wrapper clr">
+                <div class="article-left">
+                     <div class="lph-article-comView">
+                                                 
+                         <!-- AI影响因子 -->
+                        <!-- xhBPeYDbNuuRZkwy -->
+                                                <!-- AI影响因子 -->
+                        <!-- 正文内容 -->
+                        <p>雷锋网消息，Intel首席财务官兼临时首席执行官Bob Swan上周五向客户和合作伙伴发出一封公开信，讨论Intel部分产品供应紧张的问题。Bob Swan首先承认了这个问题，并概述了英特尔为解决这一问题所采取的一系列行动。</p><p>他指出，整个2018年，业界对Intel的服务器和PC芯片需求大大超出了公司预期。2018年上半年，公司的数据中心业务同比增长23％，而英特尔的云业务同比增长43％。 此外，第二季度来自PC的需求也有所增长，这同样增加了对Intel产品的需求，因此Intel在7月份将今年的收入预测提高了45亿美元。</p><p>随着对处理器需求，特别是Xeon服务器处理器和酷睿i9等高端产品需求的增长，Intel工厂网络的压力自然也日益增加。从制造的角度来看，生产一颗28核的服务器CPU芯片显然更加困难，因为它们的物理尺寸远远大于PC上常用的双核或四核芯片。在一块晶元上刻画几百颗小芯片的良品率也要高于刻画几十颗大芯片。</p><p style="text-align: center;"><img alt="Intel再投10亿美元提升14nm产能，不过要等到明年二季度才能见效" src="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/5baf29ff47668.jpg"></p><p>因此，最近几个月Intel不得不考虑优先生产其高利润的Xeon服务器处理器和酷睿i9等高端产品，这正是目前14nm制程的中低端产品供应紧张的原因。据雷锋网了解，Intel眼下的14nm供应量总缺口高达50%，宏碁CEO陈俊圣和ODM大厂仁宝总经理翁宗斌都在IFA期间表示Intel 14nm处理器的供应问题将是对各品牌供应链的严峻考验，还是影响今年下半年PC市场表现的最大不确定因素。而据外媒Tom's Hardware称，Intel甚至必须使用22nm制程来生产H310C芯片组，以释放其14nm制程的产能。</p><p>尽管如此，Intel的Xeon服务器处理器供应量依然非常紧张，特别值得一提的是，根据一份惠普企业部门的告知函上的信息，HPE（惠普企业部门）甚至推荐客户采购ProLiant DL325 Gen10和ProLiant DL385 Gen10等使用AMD EPYC芯片的服务器产品。</p><p style="text-align: center;"><img alt="Intel再投10亿美元提升14nm产能，不过要等到明年二季度才能见效" src="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/5baf2a282ac0d.jpg"></p><p>Intel原本计划今年投资140亿美元用于资本支出，但随后又拨出另外10亿美元用于提高其14nm晶圆厂的产能。Intel目前正在将这10亿美元投放到俄勒冈州、亚利桑那州、爱尔兰和以色列的生产基地，以增加14nm芯片的产量。</p><p>当然，Intel没有详细说明它将如何升级设备，但10亿美元可以买到许多步进扫描系统来处理晶圆。不过需要注意的一点是，对晶圆厂投资通常以月为单位，目前的任何投资都不太可能在明年第一季度结束前切实提高晶圆厂的产量。</p><p>除了为现有的14nm晶圆厂增加新设备以提升产能外，Intel还将继续投资其10nm制造工艺。据悉，10nm制程的产能正在逐渐提高，Intel预计其下一代CPU将在2019年进入批量生产，届时目前的一部分14nm产能将被挪为10nm所用，因此Intel必须确保其10nm良品率足够高且芯片尺寸足够低，才能在明年10nm上线时推进全球CPU产量提升。</p><p>作为几十年来的竞争对手，AMD这边则是充分发扬“趁你病要你命”的精神，凭借Ryzen芯片抢占Intel的市场份额，市场呈现一幅此消彼长的态势。今年7月中旬，AMD股价今年以来已经涨了60%，到了8月，AMD的股价已经从年初的11美元涨到了现在的22美元，上涨了100%。</p><p style="text-align: center;"><img alt="Intel再投10亿美元提升14nm产能，不过要等到明年二季度才能见效" src="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/5baf29d6cf6d2.png"></p><p>雷锋网<span style="color:#FD5D3C;">(公众号：雷锋网)</span>在此前的报道中提到，Rosenblatt Securities分析师Hans Mosesmann曾在报告中表示“Lisa Su（苏姿丰）的低调和强有力的领导使其获得了投资者和客户一致的赞誉。”并且Mosesmann将AMD的价格目标提升至30美元，该价格比当前价格高出30％，也是华尔街最高。</p><p>不过此番Intel的公开信发布后，Intel的股价得以止跌反弹，最高涨幅3.8%，日高为47.75美元；周五美股盘初曾跌1%，触及日低45.46美元；最终收涨3.07%，报47.29美元，创9月5日以来最高。而AMD这边的跌幅扩大至近8%，一度跌破30美元整数关口，最终收跌5.22%，报30.89美元，创9月13日以来最低，今年迄今涨幅缩窄至190%。不过这一表现还是远超英特尔，后者今年仅累涨2%，过去一个月跌3%。</p><p style="text-align: center;"><img alt="Intel再投10亿美元提升14nm产能，不过要等到明年二季度才能见效" src="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/5baf29e580d33.jpg"></p><p><br></p><p>附：Intel<a href="https://newsroom.intel.com/news-releases/supply-update/" target="_blank" rel="nofollow">公开信原文</a></p>
+                                                <p>雷锋网原创文章，未经授权禁止转载。详情见<a href="http://dwz.cn/4ErMxZ" rel="nofollow" target="_blank">转载须知</a>。</p>
+                                               
+                                                <!-- 正文内容结束 -->
+                    </div>
+
+                    <!-- 分享 -->
+                    <div class="pageActive clr">
+                        <div class="mark-like-btn ">
+                            <a class="collect collect-no" href="javascript:;"><i></i><span>0</span>人收藏</a>
+                        </div>
+                        <!-- Baidu Button BEGIN -->
+                        <div class="bdsharebuttonbox bdshare-button-style0-24" data-tag="share_179639" data-bd-bind="1540177367762">
+                            <span class="s-txt">分享：</span>
+                            <a href="javascript:void()" onclick="openYNote(&#39;https://www.leiphone.com/news/201809/VZHmxeGAjP7JgZKk.html&#39;,&#39;Intel再投10亿美元提升14nm产能，不过要等到明年二季度才能见效&#39;, &#39;https://static.leiphone.com/uploads/new/article/pic/201809/5baf2b231b8c1.jpg&#39;,&#39;leiphone&#39;,&#39;Intel再投10亿美元提升14nm产能，不过要等到明年二季度才能见效&#39;)" class="youdao " title="收藏此篇文章到有道云笔记"><i></i></a>
+                            <a class="bds_tsina weibo-btn  " data-cmd="tsina" title="分享到新浪微博"></a>
+                            <a class="weixin-btn bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+                            <a class="bds_more more-btn" data-cmd="more"></a>
+                        </div>
+                        
+
+                    </div>
+                    <!-- 相关文章 -->
+                                        <!-- 推荐文章 -->
+                    <div class="realted-article clr recmdArticle" data-article_id="179639">
+                        <div class="list">
+                            <ul><li data-id="178793" data-parameter="1_5021df_art_0_a9946c5ec3fa44f0a957eef670f19ead">                                                            <a href="https://www.leiphone.com/news/201808/RqosedLtcTHe9go3.html?ulu-rcmd=1_5021df_art_0_a9946c5ec3fa44f0a957eef670f19ead" class="pic" target="_blank">                                                                <img src="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/5b8108ffdebe2.jpg" alt="股价接近12年来新高，AMD正在赢得与Intel的芯片大战？" width="170" height="100">                                                            </a>                                                            <div class="txt">                                                                <a href="https://www.leiphone.com/news/201808/RqosedLtcTHe9go3.html?ulu-rcmd=1_5021df_art_0_a9946c5ec3fa44f0a957eef670f19ead" target="_blank">股价接近12年来新高，AMD正在赢得与Intel的芯片大战？</a>                                                            </div>                                                        </li><li data-id="179234" data-parameter="1_5021df_art_1_a9946c5ec3fa44f0a957eef670f19ead">                                                            <a href="https://www.leiphone.com/news/201809/uaVyhfcOX8cjbQKG.html?ulu-rcmd=1_5021df_art_1_a9946c5ec3fa44f0a957eef670f19ead" class="pic" target="_blank">                                                                <img src="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/5b990277dd16c.jpg" alt="10nm工艺严重受阻，14nm产能已经告急，“牙膏厂”还有多少牙膏可以挤？" width="170" height="100">                                                            </a>                                                            <div class="txt">                                                                <a href="https://www.leiphone.com/news/201809/uaVyhfcOX8cjbQKG.html?ulu-rcmd=1_5021df_art_1_a9946c5ec3fa44f0a957eef670f19ead" target="_blank">10nm工艺严重受阻，14nm产能已经告急，“牙膏厂”还有多少牙膏可以挤？</a>                                                            </div>                                                        </li><li data-id="179910" data-parameter="1_5021df_rfill_2_a9946c5ec3fa44f0a957eef670f19ead">                                                            <a href="https://www.leiphone.com/news/201810/GSFecOk6XZyAavYA.html?ulu-rcmd=1_5021df_rfill_2_a9946c5ec3fa44f0a957eef670f19ead" class="pic" target="_blank">                                                                <img src="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/5bc7f76d6ce41.jpg" alt="专访京东副总裁翁志：全方位解读 CNCC 2018「数据开创商业新生态」技术论坛 | CNCC 2018" width="170" height="100">                                                            </a>                                                            <div class="txt">                                                                <a href="https://www.leiphone.com/news/201810/GSFecOk6XZyAavYA.html?ulu-rcmd=1_5021df_rfill_2_a9946c5ec3fa44f0a957eef670f19ead" target="_blank">专访京东副总裁翁志：全方位解读 CNCC 2018「数据开创商业新生态」技术论坛 | CNCC 2018</a>                                                            </div>                                                        </li><li data-id="179964" data-parameter="1_5021df_rfill_3_a9946c5ec3fa44f0a957eef670f19ead">                                                            <a href="https://www.leiphone.com/news/201810/icN2VRhS9u7EPEMW.html?ulu-rcmd=1_5021df_rfill_3_a9946c5ec3fa44f0a957eef670f19ead" class="pic" target="_blank">                                                                <img src="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/5bcacdb316829.png" alt="向往成为苹果背后：新造车势力的野心和挑战" width="170" height="100">                                                            </a>                                                            <div class="txt">                                                                <a href="https://www.leiphone.com/news/201810/icN2VRhS9u7EPEMW.html?ulu-rcmd=1_5021df_rfill_3_a9946c5ec3fa44f0a957eef670f19ead" target="_blank">向往成为苹果背后：新造车势力的野心和挑战</a>                                                            </div>                                                        </li></ul>
+                        </div>
+                    </div>
+                    <!-- 广告 -->
+                    
+                    <!-- 文章 评论  -->
+                    <!-- 评论 -->
+<div class="article-comment lp-comment" id="lph-comment-179639">
+    <div class="useComJs">
+        <!-- <input id="lp_item_id" type="hidden" name="item_id" value="179639">
+        <input id="lp_item_type" type="hidden" name="type" value="2"> -->
+
+        <div class="h2 clr">
+            <h2>文章点评：</h2>
+            <!-- <strong class="h2-tip">
+                （您需要<a class="c-log" href="javascript:openPop('#lp-login-pop');">登录</a>后才能评论 <a href="https://home.leiphone.com/main/register" class="c-reg">没有账号</a> ？）</strong>
+            -->        
+        </div>
+        <div class="submit clr commentForm" id="">
+            <div class="text">
+                <textarea name="Comment[content]" placeholder="我有话要说……"></textarea>
+            </div>
+            <div class="sub clr publishtosina">
+                <span class="emotionc emotion0" data-emotion="0">表情</span>
+                <label><input id="" type="checkbox" name="pushForWeibo"> 同步到新浪微博</label>
+                <div class="qqFace" style="position:absolute; display:none; z-index:10"></div>
+                <button type="submit" title="提交">提交</button>
+            </div>
+        </div>
+        <!-- <div class="jcWords">
+            <h3><strong>精彩评论</strong></h3>
+            <ul class="comment-say">
+                
+            </ul>
+        </div>
+        <div class="words">
+            <h3><strong>最新评论</strong><span></span>条评论<i></i></h3>
+            <ul class="comment-say">
+                
+            </ul>
+            <div id="comment-say-more" class="comment-say-more">
+
+                <span>加载更多</span>
+                <em>没有更多了</em>
+
+            </div>
+        </div> -->
+    </div>
+				<div class="article-comment-container" data-item-id="-1" data-type-id="2">														</div>		</div>
+<!-- 评论 -->
+
+
+
+                </div>
+
+                
+<div class="article-right" style="height: 3789px; box-sizing: border-box; position: relative;">
+        <div class="aboutAur-main">
+        <div class="aboutAur-msg">
+            <a href="https://www.leiphone.com/author/renran255" class="avater" target="_blank" rel="nofollow">
+                <img src="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/5af904d08ce7d_100_100.jpg" alt="" width="80" height="80">
+            </a>
+            <div class="name">
+                <a href="https://www.leiphone.com/author/renran255" target="_blank" rel="nofollow"><span>任然</span><em class="gold"></em></a>
+            </div>
+            <p class="profession">编辑</p>
+            <div class="saying">
+                <em class="l-quote"></em>
+                <span>观点离经叛道的骨灰级硬件爱好者</span>
+                <em class="r-quote"></em>
+            </div>
+            <div class="operate-btn">
+                <table>
+                    <tbody><tr>
+                                                                        <td>
+                            <a href="mailto:renran@leiphone.com" class="eml sub_a" rel="nofollow"><em></em></a>
+                        </td>
+                                                                    </tr>
+                </tbody></table>
+            </div>
+            <div class="btns">
+                <a href="javascript:;">发私信</a>
+            </div>
+        </div>
+
+
+        <!-- 作者的文章 -->
+        
+<div class="mouthHot-article">
+    <div class="title">当月热门文章</div>
+        <div class="list">
+            <ul>
+                        <li>
+                <a href="https://www.leiphone.com/news/201810/QtLDqb2lUb2CjU5Q.html" title="深度解析苹果A12处理器：性能和能耗比令安卓旗舰SoC汗颜" target="_blank">深度解析苹果A12处理器：性能和能耗比令安卓旗舰SoC汗颜</a>
+            </li>
+                        <li>
+                <a href="https://www.leiphone.com/news/201810/kTvvHpEtHbavaElS.html" title="AMD的7nm处理器样品出锅了，不过似乎对Intel威胁不大" target="_blank">AMD的7nm处理器样品出锅了，不过似乎对Intel威胁不大</a>
+            </li>
+                        <li>
+                <a href="https://www.leiphone.com/news/201809/AuuQYj5UMhLwVNQF.html" title="百度“千城计划”落地长春，我国四大智慧城市群加速成形 | 智慧城市周报" target="_blank">百度“千城计划”落地长春，我国四大智慧城市群加速成形 | 智慧城市周报</a>
+            </li>
+                        <li>
+                <a href="https://www.leiphone.com/news/201809/K2pJBY0QdQJGkDdC.html" title="Cadence公布人工智能芯片Tensilica DNA 100，性能提升4.7倍，能耗比提升2.3倍" target="_blank">Cadence公布人工智能芯片Tensilica DNA 100，性能提升4.7倍，能耗比提升2.3倍</a>
+            </li>
+                        <li>
+                <a href="https://www.leiphone.com/news/201809/dkoKhdvEXjivRA3p.html" title="NVIDIA Turing架构解析：追光逐影，成败未定" target="_blank">NVIDIA Turing架构解析：追光逐影，成败未定</a>
+            </li>
+                    </ul>
+    </div>
+</div>
+       <!-- 作者文章结束 -->
+    </div>
+
+            
+        
+<div style="width: 255px; position: static;"><div class="weekly-choice hotNew-article">
+        <div class="rComTitle">
+            最新文章
+        </div>
+        <div class="list">
+            <ul class="justTxt">
+                                    <li>
+                        <a href="https://www.leiphone.com/news/201809/amneGfjKmtz17EJD.html" target="_blank">
+                            <em></em>雷锋网大招募！ </a>
+                    </li>
+                                    <li>
+                        <a href="https://www.leiphone.com/news/201810/3DTJrqts1LJUV06d.html" target="_blank">
+                            <em></em>特斯拉官网下架“全自动驾驶”选项；马蜂窝回应“数据抄袭”；美媒：在欧预装谷歌应用要收费 </a>
+                    </li>
+                                    <li>
+                        <a href="https://www.leiphone.com/news/201810/89CuG3aIPNy1qO04.html" target="_blank">
+                            <em></em>京东与中科院、新泽西理工共同成立区块链联合实验室，推动区块链底层技术研发 </a>
+                    </li>
+                                    <li>
+                        <a href="https://www.leiphone.com/news/201810/nZUe0qC5IYcM642a.html" target="_blank">
+                            <em></em>母公司背书，浪潮与IBM10亿合资的IPS携POWER9全线新品亮相 </a>
+                    </li>
+                                    <li>
+                        <a href="https://www.leiphone.com/news/201810/xcHVipPc6SdMTrz6.html" target="_blank">
+                            <em></em>芯片热潮之下的前瞻思考 </a>
+                    </li>
+                                    <li>
+                        <a href="https://www.leiphone.com/news/201810/VMgwLiA7RMDbFRCx.html" target="_blank">
+                            <em></em>一场“没有”英特尔的服务器新品发布会 新华三和AMD在一起了？ </a>
+                    </li>
+                            </ul>
+        </div>
+    </div><div class="serKesy-list">
+    <div class="rComTitle">
+        热门搜索
+    </div>
+    <div class="list clr">
+                <a href="https://www.leiphone.com/tag/%E8%B0%B7%E6%AD%8C" target="_blank">谷歌</a>
+                <a href="https://www.leiphone.com/tag/%E7%9B%B4%E6%92%AD" target="_blank">直播</a>
+                <a href="https://www.leiphone.com/tag/%E9%A9%AC%E4%BA%91" target="_blank">马云</a>
+                <a href="https://www.leiphone.com/tag/%E6%99%BA%E8%83%BD%E6%B1%BD%E8%BD%A6" target="_blank">智能汽车</a>
+                <a href="https://www.leiphone.com/tag/iPhone%205" target="_blank">iPhone 5</a>
+                <a href="https://www.leiphone.com/tag/%E5%9C%B0%E5%9B%BE" target="_blank">地图</a>
+                <a href="https://www.leiphone.com/tag/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F" target="_blank">操作系统</a>
+                <a href="https://www.leiphone.com/tag/Disrupt%E5%A4%A7%E4%BC%9A" target="_blank">Disrupt大会</a>
+                <a href="https://www.leiphone.com/tag/Mozilla" target="_blank">Mozilla</a>
+                <a href="https://www.leiphone.com/tag/OLED" target="_blank">OLED</a>
+                <a href="https://www.leiphone.com/tag/%E4%B8%80%E5%8A%A0" target="_blank">一加</a>
+            </div>
+</div></div></div>
+
+
+
+            </div>
+        </div>
+    </div>
+    <div class="lineBg"></div>
+    <!-- 百度分享 -->
+    
+</div>
+
+
+
+
+
+
+<script>
+    function openYNote(url, title, pic, vendor, summary) {
+        var target = 'http://note.youdao.com/memory/?url=' + encodeURIComponent(url) +
+            '&title=' + encodeURIComponent(title) + '&pic=' + encodeURIComponent(pic) +
+            '&product=' + encodeURIComponent('网页收藏') +
+            '&summary=' + encodeURIComponent(summary) + '&vendor=' + encodeURIComponent(vendor);
+        window.open(target);
+    }
+  seajs.use(['https://www.leiphone.com/resWeb/js/article' , 'https://www.leiphone.com/resWeb/js/load_articles']);
+
+
+
+   // document.getElementById('weixin-qt').insertBefore(qcode.create(),document.getElementById('weixin-qt-msg'));
+</script>
+
+<footer class="yp-footer">
+    <!-- 友情链接，热门关键字 -->
+    <div class="yp-footer-link">
+        <div class="wrapper">
+            <div class="tab_tit clr">
+                                <a href="javascript:;">热门关键字</a>
+            </div>
+            <div class="tab_con">
+                <ul>
+                                        
+                                        <li class="cur">
+                                        
+                                                                                            <a href="http://www.leiphone.com/tags" target="_blank">热门标签</a>                                                                    <a href="http://www.leiphone.com/tag/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD" target="_blank">人工智能 </a>                                                                    <a href="https://www.leiphone.com/tag/%E6%9C%BA%E5%99%A8%E4%BA%BA" target="_blank">机器人</a>                                                                    <a href="https://www.leiphone.com/tag/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0" target="_blank">机器学习</a>                                                                    <a href="https://www.leiphone.com/tag/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0" target="_blank">深度学习</a>                                                                    <a href="https://www.leiphone.com/tag/%E9%87%91%E8%9E%8D%E7%A7%91%E6%8A%80" target="_blank">金融科技</a>                                                                    <a href="https://www.leiphone.com/tag/%E6%9C%AA%E6%9D%A5%E5%8C%BB%E7%96%97" target="_blank">未来医疗</a>                                                                    <a href="https://www.leiphone.com/tag/%E6%99%BA%E8%83%BD%E9%A9%BE%E9%A9%B6" target="_blank">智能驾驶</a>                                                                    <a href="https://www.leiphone.com/tag/%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6" target="_blank">自动驾驶</a>                                                                    <a href="https://www.leiphone.com/tag/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89" target="_blank">计算机视觉</a>                                                                    <a href="https://www.leiphone.com/tag/%E6%BF%80%E5%85%89%E9%9B%B7%E8%BE%BE" target="_blank">激光雷达</a>                                                                    <a href="https://www.leiphone.com/tag/%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB" target="_blank">图像识别</a>                                                                    <a href="https://www.leiphone.com/tag/%E6%99%BA%E8%83%BD%E9%9F%B3%E7%AE%B1" target="_blank">智能音箱</a>                                                                    <a href="https://www.leiphone.com/tag/%E5%8C%BA%E5%9D%97%E9%93%BE" target="_blank">区块链</a>                                                                    <a href="https://www.leiphone.com/tag/%E6%99%BA%E8%83%BD%E6%8A%95%E9%A1%BE" target="_blank">智能投顾</a>                                                                    <a href="https://www.leiphone.com/tag/%E5%8C%BB%E5%AD%A6%E5%BD%B1%E5%83%8F" target="_blank">医学影像</a>                                                                    <a href="https://www.leiphone.com/tag/%E7%89%A9%E8%81%94%E7%BD%91" target="_blank">物联网</a>                                                                    <a href="https://www.leiphone.com/tag/IoT" target="_blank">IoT</a>                                                                    <a href="https://www.leiphone.com/tag/CV" target="_blank">CV</a>                                                                    <a href="http://www.leiphone.com/special/235/201609/57e4fe78a71ea.html" target="_blank">微信小程序平台</a>                                                                    <a href="http://www.leiphone.com/news/201701/ri7dDB7Fq0mMj1qh.html" target="_blank">微信小程序在哪</a>                                                                    <a href="http://www.leiphone.com/tag/CES%202017" target="_blank">CES 2017</a>                                                                    <a href="http://www.leiphone.com/tag/CES" target="_blank">CES</a>                                                                    <a href="http://www.leiphone.com/tag/2016%E5%B9%B4%E6%9C%80%E5%80%BC%E5%BE%97%E8%B4%AD%E4%B9%B0%E7%9A%84%E6%99%BA%E8%83%BD%E7%A1%AC%E4%BB%B6" target="_blank">2016年最值得购买的智能硬件</a>                                                                    <a href="http://www.leiphone.com/news/201612/sI2n04bJ5aVzS5Pr.html" target="_blank">2016 互联网</a>                                                                    <a href="http://www.leiphone.com/tag/%E5%B0%8F%E7%A8%8B%E5%BA%8F" target="_blank">小程序</a>                                                                    <a href="http://www.leiphone.com/tag/%E5%BE%AE%E4%BF%A1%E6%9C%8B%E5%8F%8B%E5%9C%88" target="_blank">微信朋友圈</a>                                                                    <a href="http://www.leiphone.com/news/201612/J8qZLCwViDpwygen.html" target="_blank">抢票软件</a>                                                                    <a href="http://www.leiphone.com/tag/%E6%99%BA%E8%83%BD%E6%89%8B%E6%9C%BA" target="_blank">智能手机</a>                                                                    <a href="http://www.leiphone.com/tag/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85" target="_blank">智能家居</a>                                                                    <a href="http://www.leiphone.com/tag/%E6%99%BA%E8%83%BD%E6%89%8B%E7%8E%AF" target="_blank">智能手环</a>                                                                    <a href="http://www.leiphone.com/tag/%E6%99%BA%E8%83%BD%E6%9C%BA%E5%99%A8%E4%BA%BA" target="_blank">智能机器人</a>                                                                    <a href="http://www.leiphone.com/tag/%E6%99%BA%E8%83%BD%E7%94%B5%E8%A7%86" target="_blank">智能电视</a>                                                                    <a href="http://www.leiphone.com/tag/360%E6%99%BA%E8%83%BD%E7%A1%AC%E4%BB%B6" target="_blank">360智能硬件</a>                                                                    <a href="http://www.leiphone.com/tag/%E6%99%BA%E8%83%BD%E6%91%84%E5%83%8F%E6%9C%BA" target="_blank">智能摄像机</a>                                                                    <a href="http://www.leiphone.com/news/201601/mQ8TFsppN7ROxYmS.html" target="_blank">智能硬件产品</a>                                                                    <a href="http://www.leiphone.com/tag/%E6%99%BA%E8%83%BD%E7%A1%AC%E4%BB%B6%E5%8F%91%E5%B1%95" target="_blank">智能硬件发展</a>                                                                    <a href="http://www.leiphone.com/tag/%E6%99%BA%E8%83%BD%E7%A1%AC%E4%BB%B6%E5%88%9B%E4%B8%9A" target="_blank">智能硬件创业</a>                                                                    <a href="http://www.leiphone.com/tag/%E9%BB%91%E5%AE%A2" target="_blank">黑客</a>                                                                    <a href="http://www.leiphone.com/tag/%E7%99%BD%E5%B8%BD%E5%AD%90" target="_blank">白帽子</a>                                                                    <a href="http://www.leiphone.com/tag/%E5%A4%A7%E6%95%B0%E6%8D%AE" target="_blank">大数据</a>                                                                    <a href="http://www.leiphone.com/tag/%E4%BA%91%E8%AE%A1%E7%AE%97" target="_blank">云计算</a>                                                                    <a href="http://www.leiphone.com/tag/%E6%96%B0%E8%83%BD%E6%BA%90%E6%B1%BD%E8%BD%A6" target="_blank">新能源汽车</a>                                                                    <a href="http://www.leiphone.com/tag/%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6" target="_blank">无人驾驶</a>                                                                    <a href="http://www.leiphone.com/tag/%E6%97%A0%E4%BA%BA%E6%9C%BA" target="_blank">无人机</a>                                                                    <a href="http://www.leiphone.com/tag/%E5%A4%A7%E7%96%86" target="_blank">大疆</a>                                                                    <a href="http://www.leiphone.com/tag/%E5%B0%8F%E7%B1%B3%E6%97%A0%E4%BA%BA%E6%9C%BA" target="_blank">小米无人机</a>                                                                    <a href="http://www.leiphone.com/tag/%E7%89%B9%E6%96%AF%E6%8B%89" target="_blank">特斯拉</a>                                                                    <a href="http://www.leiphone.com/tag/VR%E6%B8%B8%E6%88%8F" target="_blank">VR游戏</a>                                                                    <a href="http://www.leiphone.com/tag/VR%E7%94%B5%E5%BD%B1" target="_blank">VR电影</a>                                                                    <a href="http://www.leiphone.com/tag/VR%E8%A7%86%E9%A2%91" target="_blank">VR视频</a>                                                                    <a href="http://www.leiphone.com/tag/VR%E7%9C%BC%E9%95%9C" target="_blank">VR眼镜</a>                                                                    <a href="http://www.leiphone.com/tag/VR%E8%B4%AD%E7%89%A9" target="_blank">VR购物</a>                                                                    <a href="http://www.leiphone.com/tag/AR" target="_blank">AR</a>                                                                    <a href="http://www.leiphone.com/tag/%E7%9B%B4%E6%92%AD" target="_blank">直播</a>                                                                    <a href="http://www.leiphone.com/tag/%E6%89%AB%E5%9C%B0%E6%9C%BA%E5%99%A8%E4%BA%BA" target="_blank">扫地机器人</a>                                                                    <a href="http://www.leiphone.com/tag/%E5%8C%BB%E7%96%97%E6%9C%BA%E5%99%A8%E4%BA%BA" target="_blank">医疗机器人</a>                                                                    <a href="http://www.leiphone.com/tag/%E5%B7%A5%E4%B8%9A%E6%9C%BA%E5%99%A8%E4%BA%BA" target="_blank">工业机器人</a>                                                                    <a href="http://www.leiphone.com/tag/%E7%B1%BB%E4%BA%BA%E6%9C%BA%E5%99%A8%E4%BA%BA" target="_blank">类人机器人</a>                                                                    <a href="http://www.leiphone.com/tag/%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA" target="_blank">聊天机器人</a>                                                                    <a href="http://www.leiphone.com/news/201606/kyKJpmCelZrWE7K4.html" target="_blank">微信机器人</a>                                                                    <a href="http://www.leiphone.com/tag/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F" target="_blank">微信小程序</a>                                                                    <a href="http://www.leiphone.com/tag/%E7%A7%BB%E5%8A%A8%E6%94%AF%E4%BB%98" target="_blank">移动支付</a>                                                                    <a href="http://www.leiphone.com/tag/%E6%94%AF%E4%BB%98%E5%AE%9D" target="_blank">支付宝</a>                                                                    <a href="http://www.leiphone.com/tag/P2P" target="_blank">P2P</a>                                                                    <a href="http://www.leiphone.com/tag/%E5%8C%BA%E5%9D%97%E9%93%BE" target="_blank">区块链</a>                                                                    <a href="http://www.leiphone.com/tag/%E6%AF%94%E7%89%B9%E5%B8%81" target="_blank">比特币</a>                                                                    <a href="http://www.leiphone.com/tag/%E9%A3%8E%E6%8E%A7" target="_blank">风控</a>                                                                    <a href="http://www.leiphone.com/tag/%E9%AB%98%E7%9B%9B" target="_blank">高盛</a>                                                                    <a href="http://www.leiphone.com/tag/%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB" target="_blank">人脸识别</a>                                                                    <a href="http://www.leiphone.com/tag/%E6%8C%87%E7%BA%B9%E8%AF%86%E5%88%AB" target="_blank">指纹识别</a>                                                                    <a href="http://www.leiphone.com/tag/%E9%BB%91%E7%A7%91%E6%8A%80" target="_blank">黑科技</a>                                                                    <a href="http://www.leiphone.com/news/201502/S5yH58slS9gpBrm4.html" target="_blank">谷歌地图</a>                                                                    <a href="http://www.leiphone.com/tag/%E8%B0%B7%E6%AD%8C" target="_blank">谷歌</a>                                                                    <a href="http://www.leiphone.com/tag/IBM" target="_blank">IBM</a>                                                                    <a href="http://www.leiphone.com/tag/%E5%BE%AE%E8%BD%AF" target="_blank">微软</a>                                                                    <a href="http://www.leiphone.com/tag/%E4%B9%90%E8%A7%86" target="_blank">乐视</a>                                                                    <a href="http://www.leiphone.com/tag/%E7%99%BE%E5%BA%A6" target="_blank">百度</a>                                                                    <a href="http://www.leiphone.com/tag/%E4%B8%89%E6%98%9Fs8" target="_blank">三星s8</a>                                                                    <a href="http://www.leiphone.com/tag/%E8%85%BE%E8%AE%AF" target="_blank">腾讯</a>                                                                    <a href="http://www.leiphone.com/list/%E4%B8%89%E6%98%9FNote8" target="_blank">三星Note8 </a>                                                                    <a href="http://www.leiphone.com/news/201610/oUUuMZtyi7H6xMGA.html" target="_blank">小米MIX</a>                                                                    <a href="http://www.leiphone.com/tag/%E5%B0%8F%E7%B1%B3Note" target="_blank">小米Note</a>                                                                    <a href="http://www.leiphone.com/tag/%E5%8D%8E%E4%B8%BA" target="_blank">华为</a>                                                                    <a href="http://www.leiphone.com/tag/%E5%B0%8F%E7%B1%B3" target="_blank">小米</a>                                                                    <a href="http://www.leiphone.com/tag/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4" target="_blank">阿里巴巴</a>                                                                    <a href="http://www.leiphone.com/tag/%E8%8B%B9%E6%9E%9C" target="_blank">苹果</a>                                                                    <a href="http://www.leiphone.com/tag/MacBook%20Pro" target="_blank">MacBook Pro</a>                                                                    <a href="http://www.leiphone.com/tag/iPhone" target="_blank">iPhone</a>                                                                    <a href="http://www.leiphone.com/tag/Facebook" target="_blank">Facebook</a>                                                                    <a href="http://www.leiphone.com/tag/GAIR" target="_blank">GAIR</a>                                                                    <a href="http://www.leiphone.com/tag/IROS" target="_blank">IROS</a>                                                                    <a href="http://www.leiphone.com/tag/%E5%8F%8C%E5%88%9B%E5%91%A8" target="_blank">双创周</a>                                                                    <a href="http://www.leiphone.com/tag/%E4%BA%91%E6%A0%96%E5%A4%A7%E4%BC%9A" target="_blank">云栖大会</a>                                                                    <a href="https://www.iuplus.com/" target="_blank">优葩</a>                                                                    <a href="http://www.leiphone.com/news/201610/qN5pHyh1kQUQEGtw.html" target="_blank">智能硬件公司</a>                                                                    <a href="http://www.leiphone.com/category/weiwu" target="_blank">智能硬件</a>                                                                    <a href="http://www.leiphone.com/news/201701/RnURKJ8H5PaG9g7y.html" target="_blank">QQ红包</a>                                                                    <a href="http://www.leiphone.com/news/201701/RnURKJ8H5PaG9g7y.html" target="_blank">支付宝红包</a>                                                                    <a href="http://www.leiphone.com/news/201701/cdANtd69SJLFwdXs.html" target="_blank">敬业福</a>                                                                                    
+                        <a href="https://www.leiphone.com/list/%E7%A7%92%E6%8B%8D" target="_blank">秒拍</a><a href="https://www.leiphone.com/list/%E9%AA%81%E9%BE%99820" target="_blank">骁龙820</a><a href="https://www.leiphone.com/list/%E7%94%B3%E5%A8%81" target="_blank">申威</a><a href="https://www.leiphone.com/list/ios10%E8%A7%A3%E9%94%81" target="_blank">ios10解锁</a><a href="https://www.leiphone.com/list/%E5%B0%8F%E7%B1%B3%E6%89%8B%E6%9C%BA4" target="_blank">小米手机4</a><a href="https://www.leiphone.com/list/%E9%BE%99%E8%8A%AF3b" target="_blank">龙芯3b</a><a href="https://www.leiphone.com/list/%E9%A1%BE%E5%98%89%E5%94%AF" target="_blank">顾嘉唯</a><a href="https://www.leiphone.com/list/nvidia%20x1" target="_blank">nvidia x1</a><a href="https://www.leiphone.com/list/%E5%8C%97%E6%96%97%E5%8D%AB%E6%98%9F%E5%AE%9A%E4%BD%8D%E7%B3%BB%E7%BB%9F" target="_blank">北斗卫星定位系统</a><a href="https://www.leiphone.com/list/iphone%20%E5%AF%86%E7%A0%81%E7%A0%B4%E8%A7%A3" target="_blank">iphone 密码破解</a><a href="https://www.leiphone.com/list/android5.0%E6%96%B0%E7%89%B9%E5%BE%81%E8%AF%A6%E8%A7%A3" target="_blank">android5.0新特征详解</a><a href="https://www.leiphone.com/list/vr%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1" target="_blank">vr交互设计</a><a href="https://www.leiphone.com/list/2015%E5%8F%8C%E5%8D%81%E4%B8%80" target="_blank">2015双十一</a><a href="https://www.leiphone.com/list/%E5%B0%8F%E7%89%9B%E7%94%B5%E5%8A%A8%E8%BD%A6%E5%AE%9E%E4%BD%93%E5%BA%97" target="_blank">小牛电动车实体店</a><a href="https://www.leiphone.com/list/%E5%A4%A7%E7%96%86%E6%97%A0%E4%BA%BA%E6%9C%BA%E4%BF%9D%E9%99%A9" target="_blank">大疆无人机保险</a>                        <a href="https://www.leiphone.com/list/" target="_blank">更多</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="yp-footer-msg">
+        <div class="wrapper clr">
+            <!-- links -->
+            <div class="links">
+                <a rel="nofollow" href="https://www.leiphone.com/us/contact">联系我们</a>
+                <a rel="nofollow" href="https://www.leiphone.com/us/index">关于我们</a>
+                <a rel="nofollow" href="https://www.leiphone.com/news/201611/0nOqnvNoxI6vX4L9.html">加入我们</a>
+                <a rel="nofollow" href="https://www.leiphone.com/us/feedback">意见反馈</a>
+                <a rel="nofollow" href="https://www.leiphone.com/contribute/index">投稿</a>
+            </div>
+            <!-- 下载app -->
+            <div class="downLoad-app">
+                <div class="qrcode">
+                    <!-- /site/download -->
+                    <img src="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/downCode.jpg" width="96" height="96" alt="">
+                </div>
+                <div class="txt">
+                    <p>下载雷锋网客户端</p>
+                    <a rel="nofollow" href="https://itunes.apple.com/cn/app/lei-feng-wang-yi-dong-hu-lian/id579529120?mt=8" target="_blank" class="iPhone"><em></em>iPhone</a>
+                    <a rel="nofollow" href="https://android.myapp.com/myapp/detail.htm?apkName=com.leiphone.app" target="_blank" class="Android"><em></em>Android</a>
+                </div>
+            </div>
+            <!-- 关注-->
+            <div class="contact">
+                <a rel="nofollow" href="mailto:web@leiphone.com" class="eml sub_a"><em></em></a>
+                <a rel="nofollow" href="https://www.weibo.com/p/1006062118746300" target="_blank" class="sina sub_a"><em></em></a>
+            </div>
+        </div>
+    </div>
+    <!-- copyRight -->
+    <div class="yp-copyright">
+        <div class="wrapper">
+            <p>Copyright © 2011-2018 www.leiphone.com 雷锋网-移动互联网智能终端第一媒体 All Rights Reserved <a target="_blank" style="color:#9baab6;" href="https://www.miitbeian.gov.cn/">粤ICP备11095991号-1</a>
+<!--                 <a  key ="54914497efbfb06e545f711c"  logo_size="83x30"  logo_type="realname"  href="https://www.anquan.org" ><script src="https://static.anquan.org/static/outer/js/aq_auth.js"></script></a> -->
+                &nbsp;&nbsp;
+                <a href="http://szcert.ebs.org.cn/0ee69ac3-f114-4bd9-9ea1-a5a04f7cd44b" rel="nofollow" target="_blank"><img src="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/govIcon.gif" width="29" height="40"></a>
+<!--                <script id="ebsgovicon" src="https://szcert.ebs.org.cn/govicon.js?id=0ee69ac3-f114-4bd9-9ea1-a5a04f7cd44b&width=29&height=40&type=1" type="text/javascript" charset="utf-8"></script>                &nbsp;&nbsp;-->
+                <a rel="nofollow" href="https://www.leiphone.com/resWeb/images/ICP.jpg" target="_blank" style="color:#9baab6">ICP证粤B2-20150332</a>
+                <a rel="nofollow" href="http://www.qiniu.com/" target="_blank" style="float:right">
+                    <img src="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/hzs4.png">
+                </a>
+            </p>
+        </div>
+    </div>
+</footer>
+<div id="lph-footer-gotoBar">
+    <div class="gotoTop">   
+        <a href="javascript:;" class="top" data-goto="0" data-start="100" style="display: block;"><em></em></a>
+    </div>
+</div>
+
+<!-- 遮罩层 -->
+<div class="lph-overlay"></div>
+    <!-- 右上角持续提示，邮箱未绑定的时候输出 -->
+    <div class="yzEmail_tip yzEmail_tip1" id="bandEmailTip">
+        <em></em>
+        <span>为了您的账户安全，请<a class="bbtn" href="javascript:;">验证邮箱</a></span>
+        <i class="close"></i>
+    </div>
+
+    <!-- 右上角持续提示，邮箱发送但未验证的时候输出 -->
+    <div class="yzEmail_tip yzEmail_tip2" id="sendEmailTip">
+        <span style="text-align: center;">您的邮箱还未验证,完成可获20积分哟！</span>
+        <p class="links"><a class="rbtn" href="javascript:;">重发邮箱</a><a class="sbtn" href="javascript:;">修改邮箱</a></p>
+        <i class="close"></i>
+    </div>
+
+    <!-- 记cookie弹窗，邮箱未绑定的时候弹出 -->
+    <div class="yzEmail_box yzEmail_box1 lph-pops" id="sendEmailBox">
+        <div class="head">请验证您的邮箱</div>
+        <div class="box">
+            <span class="tipp"><!-- *邮箱 --></span>
+            <input class="inp" id="sendEmail_input" placeholder="输入您的邮箱" value="">
+            <!-- <strong>验证邮件已发送，请您查收</strong> -->
+            <a class="btn" href="javascript:;" target="_blank" id="sendEmail_btn"><i></i><em>立即验证</em></a>
+            <div class="error"></div>
+        </div>
+        <!-- <div class="boxOk">
+            <strong>验证邮件已发送，请您查收</strong>
+        </div> -->
+        <i class="close"></i>
+    </div>
+
+    <!-- 记cookie弹窗，已发送邮件但未验证 -->
+    <div class="yzEmail_box yzEmail_box2 lph-pops" id="setPwBox">
+        <div class="head">完善账号信息</div>
+        <div class="top">
+            <span>您的账号已经绑定，现在您可以<a href="javascript:;">设置密码</a>以方便用邮箱登录</span>
+        </div>
+        <div class="btm">
+            <input class="inp" type="password" id="" placeholder="输入您的密码" value="">
+            <a class="btn" href="javascript:;" target="_blank" id=""><i></i><em>立即设置</em></a>
+            <a class="clo" href="javascript:;">以后再说</a>
+            <div class="error"></div>
+        </div>
+        <i class="close"></i>
+    </div>
+
+<!-- 申请专栏作者 -->
+<form id="applyAutor" onsubmit="return false">
+    <div class="applyAutor-pop">   
+        <i class="close"></i> 
+        <div class="title">请填写申请人资料</div>
+        <div class="main">
+            <div class="rows clr">
+               <span class="name">姓名</span>
+               <input type="text" id="name" name="MemberAuthorType[name]" value="">
+               <span class="error"></span>
+            </div>
+            <div class="rows clr">
+               <span class="name">电话</span>
+               <input type="text" id="phone" name="MemberAuthorType[phone]" value="">
+               <span class="error"></span>
+            </div>
+            <div class="rows clr">
+               <span class="name">邮箱</span>
+               <input type="text" id="eml" name="MemberAuthorType[email]" value="">
+               <span class="error"></span>
+            </div>
+            <div class="rows clr">
+               <span class="name">微信号</span>
+               <input type="text" id="weixin" name="MemberAuthorType[wechat]" value="">
+               <span class="error"></span>
+            </div>
+            <div class="rows clr">
+               <span class="name">作品链接</span>
+               <input type="text" id="job" name="MemberAuthorType[link]" value="">
+            </div>
+            <div class="rows clr">
+               <span class="name">个人简介</span>
+               <textarea id="description" name="MemberAuthorType[description]"></textarea>
+            </div>
+            <div class="rows clr rows-last">
+                <input type="submit" value="提 交" id="subBtn">
+                <input type="button" value="取 消" id="clsBtn">
+            </div>
+        </div>
+    </div>  
+</form>
+<!--<!-- 公告 -->
+<!--<div class="server-mask"></div>-->
+<!--<div class="server-pop">-->
+<!--    <em id='serCls'></em>-->
+<!--    <div class="tit">关于网站服务器维护的公告</div>-->
+<!--    <div class="main">-->
+<!--        <p>尊敬的雷锋网用户：</p>-->
+<!--        <p>&nbsp;&nbsp;&nbsp;&nbsp;由于网站服务器维护升级，雷锋网将在7月14日22:00-24:00 暂时关闭网站。由此给您带来的不便，我们深表歉意。特此公告!</p>-->
+<!--        <p class="txtR mt10">雷锋网</p>-->
+<!--        <p class="txtR">2017年7月13日</p>-->
+<!--    </div>-->
+<!--</div>-->
+
+<script>
+    // 四站登录
+    with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src=BASE_URL+'/resWeb/home/js/login/yp_login.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+<!-- 优路跟踪代码 -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5HDG4H');</script>
+<script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https'){
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else{
+            bp.src = 'https://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+             
+    })();
+</script>
+
+
+<iframe id="YP_LOGIN_WINDOW" class="YP-LOGIN" scrolling="no" src="./循环神经网络的增强方法：注意力机制以及更多 _ 雷锋网_files/saved_resource.html"></iframe><div id="YP_LOGIN_WINDOW_OVERLAY" class="YP-OVERLAY"><div class="close" title="关闭" style="background-image: url(&quot;https://home.leiphone.com/resWeb/home/images/login/close_03.png&quot;);"></div></div>
+<script type="text/javascript" id="">(function(){var g="https://www.qipus.cn/cmp",h=5021,e=function(){function e(a,b){b&&(a.addEventListener?a.onload=b:a.onreadystatechange=function(){a.readyState in{loaded:1,complete:1}&&(a.onreadystatechange=null,b())})}function k(a,b,f){var d=c.createElement("script");d.type="text/javascript";d.async=!0;d.src=a;e(d,b);f&&(d.onerror=f);a=d;b=c.getElementsByTagName("script")[0]||c.body||c.head;b.parentNode.insertBefore(a,b)}var c=document;k(g+"/cmp.api?r\x3d"+encodeURIComponent(c.referrer||"")+"\x26s\x3d"+
+h+"\x26u\x3d"+encodeURIComponent(c.location.href));window._ycnt_cb=function(a,b){}};e()})();</script>
+</body></html>
