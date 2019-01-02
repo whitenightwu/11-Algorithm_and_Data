@@ -1,0 +1,68 @@
+/* Confab Comments  */
+.confab									{ margin: 70px auto 5px; max-width: 100%; min-width: 300px; }
+.confab h4 								{ color: #000; padding: 0px 0 40px; text-align: center; font-family:'Guardian Text Sans',"sans-serif"; font-weight: 900; text-transform: uppercase; font-size: 16px; letter-spacing: 1px; }
+.confab h4.confab-heading 				{display:none;text-align: left; font-size: 16px; margin: 20px 0; font-weight: 400; text-transform: inherit; letter-spacing: 0; }
+.confab .confab-post-wrapper 			{padding: 0 0 20px 0; background:transparent;}
+.confab .confab-post-wrapper,
+.confab .confab-post-wrapper.active 		{height:auto;}
+.confab .confab-edit-bar 				{ position:relative;left:0;padding: 0 0 10px;opacity:1; pointer-events:all;}
+.confab .confab-edit-bar  button			{ font-size:18px;margin: 0 7px 0 0;    border: 0px; }
+.confab #aol-multiauth-signin{width: 300px;float: right;font-size:15px;margin: -2px 0 0 0;font-weight: bold;padding:0 10px 0 0; text-align:right;}
+
+.confab-sorting-nav{padding: 20px 0 10px 0;border-bottom: 1px solid #d5d5d6;margin: 0 0 30px;color:#ababad;}
+.confab .confab-sorting-nav button{font-weight:200;font-size:14px;color:#ababad;margin: 0 30px 0 0;}
+.confab .confab-sorting-nav button.active{color:#9b59b6; border-top:2px solid #9b59b6;border-bottom:0px;}
+
+.confab .confab-post-wrapper button 					{ border-radius: 3px;background-color:transparent; }
+.confab .confab-post-wrapper .confab-submit-button 		{ background-color: #008ee1; margin: 10px 0; }
+.confab .confab-post-wrapper .confab-textarea    {height:150px;}
+.confab .confab-post-wrapper .confab-textarea:focus 	{ outline: 1px solid #008ee1; }
+.confab .confab-legal-disclaimer 						{ font-size: 12px; width: 60%; position: absolute; bottom: 20px; left: 28px; }
+
+.confab .confab-comments-wrapper 						{ padding: 20px 0 0; }
+.confab .confab-comment { }
+.confab .confab-userIcon{left:0px;top: 16px;}
+.confab .confab-comment-heading {text-transform: none;position: relative;left: 55px;font-family: 'Guardian Text Sans',"sans-serif";font-weight: 700;padding: 0 0 30px;}
+.confab .confab-userName {font-size:15px;}
+.confab .confab-comment .confab-comment-body{font-size: 15px;line-height: 25px;}
+.confab .confab-sorting-nav [data-sort="most_active"] 	{ display: none; }
+.confab .confab-close-button 							{ right: 0; top: -5px; }
+.confab .confab-share 									{ top: 26px; right: 0; }
+
+.confab .confab-characterCounter{display:none;}
+
+.confab .confab-post-wrapper button.confab-submit-button,
+.confab .confab-post-wrapper button.confab-show-comments,
+.confab .confab-load-more{background: transparent;
+	width: 100%;color: #ababad;
+	height: 48px;border: 1px solid #d5d5d6; border-radius: 0px;    margin: 10px 0 40px;font-size: 16px;
+    text-transform: capitalize;}
+.confab .confab-post-wrapper button.confab-submit-button:hover,
+.confab .confab-post-wrapper button.confab-show-comments:hover,
+.confab .confab-load-more:hover{background-color: #f4f4f5;}
+.confab-post:after,
+.confab-post-wrapper:after,
+.confab-edit-bar:after{content:'';clear:both;}
+
+.confab .confab-comment.confab-comment-reply{}
+.confab .confab-comment-reply .confab-userIcon{}
+.permalink .permalink-content .confab img{width:auto;}
+.confab-sorting-nav,
+.confab-comments-wrapper{}
+.confab-sorting-nav .active::before, .o-title_mark::before{border-top-width: 0;}	
+
+.confab .confab-post-wrapper button.confab-close-button{position: absolute;right: -20px;background: #333;top: 1px;}
+
+/* Mobile*/
+@media only screen and (max-width:767px) {
+	.confab{margin-bottom:0px;}
+	.confab .confab-post-wrapper ,
+	.confab .confab-post-wrapper.active { padding: 0px 15px 0px 15px; overflow:hidden;}
+	.confab .confab-legal-disclaimer 	{ width: 58%; }
+	.confab .confab-characterCounter 	{ position: absolute; float: none; bottom: 16px; right: 18px; }
+	.confab #aol-multiauth-signin{width:250px;font-size:13px;}
+	.confab .confab-edit-bar button{font-size:13px;width:15px;}
+	.confab-sorting-nav{padding-top:10px;}
+	.confab .confab-sorting-nav button{font-size:12px;margin-right:10px;}
+	.confab .confab-post-wrapper button.confab-close-button{top: 4px;padding: 2px !important;width: auto;height: auto;right:0px;}
+}

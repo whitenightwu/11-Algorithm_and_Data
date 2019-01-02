@@ -1,0 +1,19 @@
+document.write("<!--*\n");
+document.write("var aolAdId=\"9712380|1\";\n");
+document.write("var aolSize=\"300|250\";\n");
+document.write("*-->\n");
+document.write("<SCR"+"IPT TYPE='text/javascript'>\n");
+document.write("var MN=\"963860576\";\n");
+document.write("var CMSID=\"\";\n");
+document.write("var EXTRA=\"aolexp=0\";\n");
+document.write("if (CMSID)EXTRA+=\"/xscinfo=\"+CMSID\n");
+document.write("var SITE=\"966095\";\n");
+document.write("var ACE_AR = {Site: SITE, Size: '300250', Mn: MN, Extra: EXTRA};\n");
+document.write("</SCR"+"IPT>\n");
+
+document.write("<SCR"+"IPT TYPE='text/javascript' SRC='https://secure.uac.advertising.com/wrapper/aceUAC.js'></scr"+"ipt>\n");
+
+
+
+document.write('<img src="https://atpixelus.alephd.com/post_adtech?RO9XeZbs6MNNBeudxTgpkr2-VDIOPlDKcT7IBtNLt.ltFJ5.5yAyrd8e2-h73GJt.mxONhMi99LsrFYFTr8Sfv9hMesAQa79P--10xePaUzNO63-UPn-BiHhSOzOVdOMUODueLA5g8CRUc1S6nZTd-OFlNTbVBM76Q-lDs43dc5elMg03sjzuoFAS4CUKuUgLK2Xa82480wlfx9xfDrMuS.Jq7TZm7urCe1GuO2sBqo=" width="1" height="1"  style="display:none;">');
+document.write('<img src="https://pixel.advertising.com/ups/56465/sync?_origin=0&redir=true&gdpr=0&gdpr_consent={{GDPRCONSENT}}" width="1" height="1" style="display:none;">');

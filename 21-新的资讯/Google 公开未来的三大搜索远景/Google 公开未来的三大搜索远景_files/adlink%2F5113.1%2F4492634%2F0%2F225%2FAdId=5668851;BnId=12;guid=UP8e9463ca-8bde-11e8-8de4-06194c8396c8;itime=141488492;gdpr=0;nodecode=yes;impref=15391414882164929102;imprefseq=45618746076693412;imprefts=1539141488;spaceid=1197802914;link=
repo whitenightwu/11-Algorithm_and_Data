@@ -1,0 +1,13 @@
+document.write("<!--*\n");
+document.write("var aolAdId=\"9864776|4\";\n");
+document.write("*-->\n");
+document.write("<!--*\n");
+document.write("var zMoatVert=\n");
+document.write("*-->\n");
+document.write("<SCR"+"IPT language='JavaScript1.1' SRC=\"https://at.atwola.com/addyn/3.0/5071.254/-1/0/0/noperf=1;extmirroring=0;alias=2963860575;kvvert=;click=https%3A//at.atwola.com/adlink%2F5071%2E254%2F4638940%2F0%2F225%2FAdId%3D9864776%3BBnId%3D4%3Bguid%3DUP8e9463ca%2D8bde%2D11e8%2D8de4%2D06194c8396c8%3Bitime%3D141488492%3Bgdpr%3D0%3Bnodecode%3Dyes%3Bimpref%3D15391414882164929102%3Bimprefseq%3D45618746076693412%3Bimprefts%3D1539141488%3Bspaceid%3D1197802914%3Blink%3D;ord=141488492?\">\n");
+document.write("</SCR"+"IPT>\n");
+
+
+
+document.write('<img src="https://atpixelus.alephd.com/post_adtech?0SEFyWocGpYCQClSf6WvyjRmvqAK7V5TZMYIbSaop30M8avPlUpmz6KYhW7SFSlrvtMVMUWOjADxn4NAqo6vUwPlvlObmz3qEckFQwsN5bqPs6vAiSrppSUq.0l4WNIKCQF6lXorSw8cWulCO6VMpNKpwEmxF1sx0vBLNerI2PeNCDsR-U1ckJQUXhEK8SOFVak-S9HxlIiehr4s3Hx4nzHRFIeNcW4i78Cxf3ivX5Y=" width="1" height="1"  style="display:none;">');
+document.write('<img src="https://pixel.advertising.com/ups/56465/sync?_origin=0&redir=true&gdpr=0&gdpr_consent={{GDPRCONSENT}}" width="1" height="1" style="display:none;">');
