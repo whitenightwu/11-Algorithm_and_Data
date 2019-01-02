@@ -1,0 +1,2 @@
+sum-product networks
+Shallow vs. Deep Sum-Product Networks

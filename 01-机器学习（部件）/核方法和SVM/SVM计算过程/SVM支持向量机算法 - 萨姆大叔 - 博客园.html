@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)http://www.cnblogs.com/sumuncle/p/5614079.html -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="origin">
+<title>SVM支持向量机算法 - 萨姆大叔 - 博客园</title>
+<meta property="og:description" content="支持向量机（SVM）是另一类的学习系统，其众多的优点使得他成为最流行的算法之一。其不仅有扎实的理论基础，而且在许多应用领域比大多数其他算法更准确。 1、线性支持向量机：可分情况 根据公式(1)&lt;">
+<link type="text/css" rel="stylesheet" href="./SVM支持向量机算法 - 萨姆大叔 - 博客园_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="./SVM支持向量机算法 - 萨姆大叔 - 博客园_files/bundle-coffee.css">
+<link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="./SVM支持向量机算法 - 萨姆大叔 - 博客园_files/bundle-coffee-mobile.css">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/sumuncle/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/sumuncle/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/sumuncle/wlwmanifest.xml">
+<script src="./SVM支持向量机算法 - 萨姆大叔 - 博客园_files/f.txt"></script><script src="./SVM支持向量机算法 - 萨姆大叔 - 博客园_files/pubads_impl_rendering_275.js"></script><script async="" src="./SVM支持向量机算法 - 萨姆大叔 - 博客园_files/analytics.js"></script><script src="./SVM支持向量机算法 - 萨姆大叔 - 博客园_files/jquery-2.2.0.min.js"></script>
+<script type="text/javascript">var currentBlogApp = 'sumuncle', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="./SVM支持向量机算法 - 萨姆大叔 - 博客园_files/blog-common.js" type="text/javascript"></script>
+<link rel="preload" href="./SVM支持向量机算法 - 萨姆大叔 - 博客园_files/f(1).txt" as="script"><script type="text/javascript" src="./SVM支持向量机算法 - 萨姆大叔 - 博客园_files/f(1).txt"></script><script src="./SVM支持向量机算法 - 萨姆大叔 - 博客园_files/pubads_impl_275.js" async=""></script><link rel="prefetch" href="http://tpc.googlesyndication.com/safeframe/1-0-31/html/container.html"></head>
+<body>
+<a name="top"></a>
+
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+	<a id="lnkBlogLogo" href="https://www.cnblogs.com/sumuncle/"><img id="blogLogo" src="./SVM支持向量机算法 - 萨姆大叔 - 博客园_files/logo.gif" alt="返回主页"></a>			
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="https://www.cnblogs.com/sumuncle/">萨姆大叔</a></h1>
+<h2></h2>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="navigator">
+			
+<ul id="navList">
+	<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">博客园</a></li>
+	<li><a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/sumuncle/">首页</a></li>
+	<li><a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+	<li><a id="blog_nav_contact" accesskey="9" class="menu" rel="nofollow" href="https://msg.cnblogs.com/send/%E8%90%A8%E5%A7%86%E5%A4%A7%E5%8F%94">联系</a></li>
+	<li><a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a></li>
+	<li><a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/sumuncle/rss">订阅</a>
+	<a id="blog_nav_rss_image" class="aHeaderXML" href="https://www.cnblogs.com/sumuncle/rss"><img src="./SVM支持向量机算法 - 萨姆大叔 - 博客园_files/xml.gif" alt="订阅"></a></li>
+</ul>
+
+
+			<div class="blogStats">
+				
+				<div id="blog_stats">
+<!--done-->
+随笔- 82&nbsp;
+文章- 0&nbsp;
+评论- 26&nbsp;
+</div>
+				
+			</div><!--end: blogStats -->
+		</div><!--end: navigator 博客导航栏 -->
+		
+<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class="post">
+		<h1 class="postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/sumuncle/p/5614079.html">SVM支持向量机算法</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body" class="blogpost-body"><p>&nbsp; <span style="font-size: 18px;">&nbsp; 支持向量机（SVM）是另一类的学习系统，其众多的优点使得他成为最流行的算法之一。其不仅有扎实的理论基础，而且在许多应用领域比大多数其他算法更准确。</span></p>
+<p><span style="font-size: 18px;"><strong>&nbsp;1、线性支持向量机：可分情况</strong></span></p>
+<p><img src="./SVM支持向量机算法 - 萨姆大叔 - 博客园_files/732403-20160624140723531-1933867142.png" alt=""></p>
+<p><span style="font-size: 18px;">根据公式(1)&lt;w.x&gt;+b=0，我们知道，w定义了垂直于超平面的方向 ，如上图，w被成为超平面的法向量，不改变法向量，可以通过变化b来平移超平面。</span></p>
+<p><span style="font-size: 18px;">&nbsp; 因为支持向量机要最大化<span style="font-family: 宋体;">整理正例和负例的距离，我们找到这个距离<span style="font-size: 12px;">2/||W||</span>；支持向量机寻找具有最大边距的分割平面，也就是被称为最大边距超平面，把该平面做为最终的决策平面；</span></span></p>
+<p>&nbsp;</p>
+<p align="left">&nbsp; <span style="font-size: 18px;">上图 中，H是分类面，H1和H2是平行于H，且过离H最近的两类样本的直线，H1与H，H2与H之间的距离就是几何间隔。几何间隔与样本的误分次数间存在关系：</span></p>
+<p><span style="font-size: 18px;"><img src="./SVM支持向量机算法 - 萨姆大叔 - 博客园_files/732403-20160624142936813-1788772513.png" alt="">，</span></p>
+<p><span style="font-size: 18px;">其中的δ是样本集合到分类面的间隔，<img src="./SVM支持向量机算法 - 萨姆大叔 - 博客园_files/732403-20160624143113281-53717657.png" alt="">，即R是所有样本中向量长度最长的值。从上式可以看出，误分次数的上界由几何间隔决定。因此选择几何间隔来作为评价一个解优劣的指标，几何间隔越大的解，它的误差上界越小。因此最大化几何间隔成了我们训练阶段的目标。</span></p>
+<p><span style="font-size: 18px;">&nbsp;从d=|&lt;w.xs&gt;+b-1|/||w||=1/||W||式可知，几何间隔与||w||是成反比的，因此最大化几何间隔与最小化||w||等价。通常不是固定||w||的大小而寻求最大几何间隔，而是固定间隔（例如固定为1），寻找最小的||w||。</span></p>
+<p><span style="font-size: 18px;">&nbsp;此时变成一个最优化问题，若想寻找一个小||w||，就可以用下面的式子表示：</span></p>
+<p><span style="font-size: 18px;">&nbsp;<img src="./SVM支持向量机算法 - 萨姆大叔 - 博客园_files/732403-20160624143041360-502385342.png" alt=""></span></p>
+<p><span style="font-size: 18px;">但实际上对于这个目标，常常使用另一个完全等价的目标函数来代替，如下：</span></p>
+<p><span style="font-size: 18px;">&nbsp;<img src="./SVM支持向量机算法 - 萨姆大叔 - 博客园_files/732403-20160624143219656-1837250458.png" alt=""></span></p>
+<p align="center"><span style="font-size: 18px;">如果直接来解这个求最小值问题，很容易看出当||w||=0的时候就得到了目标函数的最小值。反映在图2中，就是H1与H2两条直线间的距离无限大，这个时候，所有的样本点都位于H1和H2中间，而我们原本的意图是，H1右侧的被分为正类，H2左侧的被分为负类，位于两类中间的样本则拒绝分类。这样，所有样本点都进入了无法分类的灰色地带。造成这种结果的原因是在描述问题的时候只考虑了目标，而没有加入约束条件，于是可以添加约束条件：</span></p>
+<p><span style="font-size: 18px;">&nbsp;<img src="./SVM支持向量机算法 - 萨姆大叔 - 博客园_files/732403-20160624143351078-1304859600.png" alt="">(n是总的样本数）</span></p>
+<p><span style="font-size: 18px;">&nbsp;</span></p>
+<p align="left"><span style="font-size: 18px;">于是可以将两类分类转化成数学形式，如下：</span></p>
+<p><span style="font-size: 18px;">&nbsp;</span><span style="font-size: 18px;">&nbsp;<img src="./SVM支持向量机算法 - 萨姆大叔 - 博客园_files/732403-20160624143424953-2097704519.png" alt=""></span></p>
+<p><span style="font-size: 18px;">&nbsp;</span><span style="font-size: 18px;">在这个问题中，自变量就是w，而目标函数是w的二次函数，所有的约束条件都是w的线性函数，这种规划问题就是二次规划（Quadratic Programming，QP），由于它的可行域是一个凸集，因此它是一个凸二次规划。</span></p>
+<p><span style="font-size: 18px;">&nbsp; &nbsp; &nbsp;&nbsp;</span><span style="font-size: 18px;">样本确定了w，用数学的语言描述，就是w可以表示为样本的某种组合：</span></p>
+<p align="left"><span style="font-size: 18px;">　　&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="./SVM支持向量机算法 - 萨姆大叔 - 博客园_files/732403-20160624143546250-2062630161.png" alt=""></span></p>
+<p><span style="font-size: 18px;">&nbsp;</span><span style="font-size: 18px; line-height: 1.5;">式子中的是拉格朗日乘子，而是样本点，也是向量，n就是总样本点的个数。为了方便描述，以下开始严格区别数字与向量的乘积和向量间的乘积，我会用aw表示数字和向量的乘积，而用&lt;w.x&gt;表示向量的内积。因此公式(1)严格的形式应该是：</span></p>
+<p><span style="font-size: 18px;">&nbsp;</span><span style="font-size: 18px;">&nbsp;<img src="./SVM支持向量机算法 - 萨姆大叔 - 博客园_files/732403-20160624143600203-1338083858.png" alt=""></span></p>
+<p align="left"><span style="font-size: 18px; line-height: 1.5;">w不仅跟样本点的位置有关，还跟样本的类别有关。因此用下面这个式子表示w：</span></p>
+<p><span style="font-size: 18px;">&nbsp;</span><img style="font-size: 18px; line-height: 1.5;" src="./SVM支持向量机算法 - 萨姆大叔 - 博客园_files/732403-20160624143631813-263106246.png" alt=""></p>
+<p><span style="font-size: 18px;">&nbsp;其中的ai就是第i个样本的标签，它等于1或者-1。其实以上式子的拉格朗日乘子中，只有很少的一部分不等于0，这部分不等于0的拉格朗日乘子后面所乘的样本点，其实都落在和上，也正是这部分样本唯一的确定了分类函数。这部分可以确定分类的样本点，就叫做支持向量。因此原来的g(x)表达式可以写为：</span></p>
+<p><span style="font-size: 18px;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img src="./SVM支持向量机算法 - 萨姆大叔 - 博客园_files/732403-20160624143654547-211042651.png" alt="">,</span></p>
+<p><span style="font-size: 18px;">&nbsp;</span></p>
+<p><span style="font-size: 18px;">&nbsp; &nbsp;其中，<img src="./SVM支持向量机算法 - 萨姆大叔 - 博客园_files/732403-20160624143720360-859338159.png" alt=""></span></p>
+<p><span style="font-size: 18px;">&nbsp;</span></p>
+<p><span style="font-size: 18px;">上式可以变形为：</span></p>
+<p><span style="font-size: 18px;">&nbsp;<img src="./SVM支持向量机算法 - 萨姆大叔 - 博客园_files/732403-20160624143730828-676221796.png" alt=""></span></p>
+<p><span style="font-size: 18px;"><span style="font-family: 宋体;">　　此时消去了上式中的，问题从求变成了求。这样就简化了原问题的求解，以这样的形式描述问题以后，优化问题少了很大一部分不等式约束。</span></span></p>
+<p><strong><span style="font-size: 18px;"><span style="font-family: 宋体;">&nbsp;SVM中的核函数</span></span></strong></p>
+<p>&nbsp;</p>
+<p>根据模式识别理论，低维空间线性不可分的模式通过非线性映射到高维特征空间则可能实现线性可分，但是如果直接采用这种技术在高维空间进行分类或回归，则存在确定非线性映射函数的形式和参数、特征空间维数等问题，而最大的障碍则是在高维特征空间运算时存在的“维数灾难”。采用核函数技术可以有效地解决这样问题。</p>
+<p>如图3所示，当分类问题在低纬空间无法用线性分类方法解决时，可以通过将低纬空间的数据映射到高纬特征空间中，从而达到线性可分的目的。</p>
+<p align="center"><img src="./SVM支持向量机算法 - 萨姆大叔 - 博客园_files/732403-20160624145303360-1871452535.jpg" alt=""></p>
+<p>&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">图3 低纬度向高纬度空间映射</p>
+<p>从低纬度向高纬度转化关键在于寻在一个<img src="./SVM支持向量机算法 - 萨姆大叔 - 博客园_files/732403-20160624145518375-1004260088.png" alt="">函数，但对目前没有一个系统的方法。对映射过程推导如下：</p>
+<p>&nbsp;&nbsp;&nbsp; <img src="./SVM支持向量机算法 - 萨姆大叔 - 博客园_files/732403-20160624145427203-320647535.png" alt=""></p>
+<p>从上式可以得出，我们只关心高维空间里内积的值，而核函数就是接受低空间的输入，并计算出在高纬空间的内积值。<img src="./SVM支持向量机算法 - 萨姆大叔 - 博客园_files/732403-20160624145605469-1465346989.png" alt="">，就是我们要找的核函数。如图4</p>
+<p align="center">&nbsp;</p>
+<p align="center"><img src="./SVM支持向量机算法 - 萨姆大叔 - 博客园_files/732403-20160624145218094-209752181.jpg" alt=""></p>
+<p>&nbsp;</p>
+<p align="center">图4 在映射过程中的核函数</p>
+<p>于是上式，可以表示为<img src="./SVM支持向量机算法 - 萨姆大叔 - 博客园_files/732403-20160624145352781-484152202.png" alt="">。尽管给的问题是线性不可分的，但凡是要求内积的时候我们就选定的核函数来算。这样求出来的α再和你选定的核函数一组合，就可以得到线性分类器。但是任然存在以下两个问题：</p>
+<p align="left">1．既然有很多的核函数，针对具体问题该怎么选择？</p>
+<p align="left">2．如果使用核函数向高维空间映射后，问题仍然是线性不可分的，那怎么办？</p>
+<p align="left">第一个问题：对核函数的选择，现在还缺乏指导原则！各种实验的观察结果的确表明，某些问题用某些核函数效果很好，用另一些就很差，但是一般来讲，径向基核函数是不会出太大偏差的一种，首选。</p>
+<p>　　对第二个问题的解决用了SVM中的另一个概念：松弛变量。</p></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory"></div>
+<div id="EntryTag">标签: <a href="https://www.cnblogs.com/sumuncle/tag/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></div>
+<div id="blog_post_info"><div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(5614079,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+            <a id="green_channel_follow" onclick="follow(&#39;30df79cf-b4cc-e411-b908-9dcfd8948a71&#39;);" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./SVM支持向量机算法 - 萨姆大叔 - 博客园_files/icon_weibo_24.png" alt=""></a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="./SVM支持向量机算法 - 萨姆大叔 - 博客园_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/sumuncle/" target="_blank"><img src="./SVM支持向量机算法 - 萨姆大叔 - 博客园_files/20160627094807.png" class="author_avatar" alt=""></a>
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/sumuncle/">萨姆大叔</a><br>
+            <a href="http://home.cnblogs.com/u/sumuncle/followees">关注 - 19</a><br>
+            <a href="http://home.cnblogs.com/u/sumuncle/followers">粉丝 - 79</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow">
+                <a href="javascript:void(0);" onclick="follow(&#39;30df79cf-b4cc-e411-b908-9dcfd8948a71&#39;);return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(5614079,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">0</span>
+    </div>
+    <div class="buryit" onclick="votePost(5614079,&#39;Bury&#39;)">
+        <span class="burynum" id="bury_count">0</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+</div>
+<script type="text/javascript">
+    currentDiggType = 0;
+</script></div>
+<div class="clear"></div>
+<div id="post_next_prev"><a href="https://www.cnblogs.com/sumuncle/p/5613460.html" class="p_n_p_prefix">« </a> 上一篇：<a href="https://www.cnblogs.com/sumuncle/p/5613460.html" title="发布于2016-06-24 10:55">Dev之ChartControl控件（一）</a><br><a href="https://www.cnblogs.com/sumuncle/p/5620844.html" class="p_n_p_prefix">» </a> 下一篇：<a href="https://www.cnblogs.com/sumuncle/p/5620844.html" title="发布于2016-06-27 17:37">Dev之ChartControl控件（二）— 绘制多重坐标图形</a><br></div>
+</div>
+
+
+		</div>
+		<div class="postDesc">posted @ <span id="post-date">2016-06-24 14:57</span> <a href="https://www.cnblogs.com/sumuncle/">萨姆大叔</a> 阅读(<span id="post_view_count">1945</span>) 评论(<span id="post_comment_count">1</span>)  <a href="https://i.cnblogs.com/EditPosts.aspx?postid=5614079" rel="nofollow">编辑</a> <a href="http://www.cnblogs.com/sumuncle/p/5614079.html#" onclick="AddToWz(5614079);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,cb_blogId=218586,cb_entryId=5614079,cb_blogApp=currentBlogApp,cb_blogUserGuid='30df79cf-b4cc-e411-b908-9dcfd8948a71',cb_entryCreatedDate='2016/6/24 14:57:00';loadViewCount(cb_entryId);var cb_postType=1;</script>
+	
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"><div id="comments_pager_top"></div>
+<!--done-->
+<br>
+<div class="feedback_area_title">评论</div>
+<div class="feedbackNoItems"></div>
+	
+
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="http://www.cnblogs.com/sumuncle/p/5614079.html#3914286" class="layer">#1楼</a><a name="3914286" id="comment_anchor_3914286"></a><span id="comment-maxId" style="display:none;">3914286</span><span id="comment-maxDate" style="display:none;">2018/3/3 10:56:02</span> <span class="comment_date">2018-03-03 10:56</span> | <a id="a_comment_author_3914286" href="http://home.cnblogs.com/u/485525/" target="_blank">gystld</a> <a href="http://msg.cnblogs.com/send/gystld" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3914286" class="blog_comment_body">PLS+ANN+SVM+ELM+Excel+Word——市面上最易用的神经网络、支持向量机、偏最小二乘回归、极限学习机、光谱数据处理，www.plsexcelword.com</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3914286,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3914286,&#39;Bury&#39;,this)">反对(0)</a></div>
+			</div>
+		</div>
+	<div id="comments_pager_bottom"></div></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="http://www.cnblogs.com/sumuncle/p/5614079.html#" onclick="return RefreshPage();">刷新页面</a><a href="http://www.cnblogs.com/sumuncle/p/5614079.html#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="ad_t2"><a href="http://www.ucancode.com/index.htm" target="_blank">【推荐】超50万VC++源码: 大型组态工控、电力仿真CAD与GIS源码库！</a><br><a href="http://clickc.admaster.com.cn/c/a116493,b2949399,c1705,i0,m101,8a1,8b3,h" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-华为云&#39;)">【活动】申请成为华为云云享专家 尊享9大权益</a><br><a href="https://www.grapecity.com.cn/developer/spreadjs?utm_source=cnblogs&amp;utm_medium=blogpage&amp;utm_term=bottom&amp;utm_content=SpreadJS&amp;utm_campaign=community" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-SpreadJS&#39;)">【工具】SpreadJS纯前端表格控件，可嵌入应用开发的在线Excel</a><br><a href="https://cloud.tencent.com/act/group/amd/index?fromSource=gwzcw.1608278.1608278.1608278" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-腾讯云&#39;)">【腾讯云】拼团福利，AMD云服务器8元/月</a><br></div>
+<div id="opt_under_post"></div>
+<div id="cnblogs_c1" class="c_ad_block"><a href="https://cloud.tencent.com/act/double11?fromSource=gwzcw.1608279.1608279.1608279" target="_blank"><img width="300" height="250" src="./SVM支持向量机算法 - 萨姆大叔 - 博客园_files/24442-20181116205423366-85420768.jpg" alt="qcloud" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;C1&#39;);"></a></div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>相关博文：</b><br>·  <a href="https://www.cnblogs.com/hxyue/p/5932444.html" target="_blank" onclick="clickRecomItmem(5932444,&#39;bXTRyqV2mxRK1U9geuEs5gRcM5MN3/4Ke1Cd+ReB7zB1mouFQVFBFcKgk4sAen3km+cjBHItV6NGAG111XfD3SXGjs/hAkY5QVyIxRuguc7LUG2vS70FaU85FFyg3eoKC/g/i2Qbd+wfC1Lir/fHO54=&#39;)">机器学习之支持向量机</a><br>·  <a href="https://www.cnblogs.com/taojake-ML/p/6129056.html" target="_blank" onclick="clickRecomItmem(6129056,&#39;AZ3jqMDM9sDGn6vVc8OBTTxk5e69BAfKUv5dWkrmBpXl6Y7CkDr1wsB5KlZwktOvudulaK+LC+bCkT6wXPpuTWpKtCHGDu93DQWmVI3Gi1nOw/Z4WfYe12n+LzTpASjVJnqmajBpdxlJkdWOPPg=&#39;)">支持向量机（SVM：support vector machine）</a><br>·  <a href="https://www.cnblogs.com/lzida9223/p/8406538.html" target="_blank" onclick="clickRecomItmem(8406538,&#39;6pXdAvYdLfwwhPCuU/h+SnalivQfOA4vqgL7hZxQG8XrwIxmjhv3EhA+JaklDvNG+gIF/onpeUgM4ZPSAHsYSoIW5Oiqdxz3RQsImulFvkU36U/g6hozy+xo3KXQAwl0CA8NkNmnn8woS8i3QJI=&#39;)">【机器学习算法基础+实战系列】SVM</a><br>·  <a href="https://www.cnblogs.com/imageSet/p/7589064.html" target="_blank" onclick="clickRecomItmem(7589064,&#39;3iuNHxQ64SgKG6xhGxYsFPLhiYAbF+1xA9+Q0dspA0/Ev1ABANjAGMY6MHogN6qLuRFqyeM80II/I6QEbbywbMuaJ+Kz1A+C8iyx2+xM3lxTNLy/szbfx4PUFjhwvqCWcWXluMq0bTkngrYjmei3DXo=&#39;)">最优间隔分类器中为什么最大化1/||w||和最小化1/2*w^2等价</a><br>·  <a href="https://www.cnblogs.com/gongxijun/p/7700969.html" target="_blank" onclick="clickRecomItmem(7700969,&#39;aFLz0Q3QCYIeLcvqi5V1mYrgweXU2mGBoB8dO6NDDU3anqTAGKJvXBLqdkLSyqbw44TT0KlUc4OTaL+e8R2qSe/xNc8J0pdidoXE5L3NP9Xl3+oD4BqK0aR8xDN2Is7ltfzz4qwBuMi/iiIh1p18+5Q=&#39;)">SVM公式推导笔记</a><br></div></div>
+<script async="async" src="./SVM支持向量机算法 - 萨姆大叔 - 博客园_files/gpt.js"></script>
+<script>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+</script>
+
+<script>
+  googletag.cmd.push(function() {
+    googletag.defineSlot('/1090369/C2', [468, 60], 'div-gpt-ad-1539008685004-0').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.enableServices();
+  });
+</script>
+<div id="cnblogs_c2" class="c_ad_block">
+    <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;" data-google-query-id="CM3nr8CJ6t4CFYdtYAoddFYJKw">
+    <script>
+    if (new Date() >= new Date(2018, 9, 13)) {
+        googletag.cmd.push(function() { googletag.display('div-gpt-ad-1539008685004-0'); });
+    }
+    </script>
+    <div id="google_ads_iframe_/1090369/C2_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/1090369/C2_0" title="3rd party ad content" name="google_ads_iframe_/1090369/C2_0" width="468" height="60" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" style="border: 0px; vertical-align: bottom;" data-google-container-id="1" data-load-complete="true" src="./SVM支持向量机算法 - 萨姆大叔 - 博客园_files/saved_resource.html"></iframe></div></div>
+</div>
+<div id="under_post_kb"><div class="itnews c_ad_block"><b>最新新闻</b>：<br> ·  <a href="https://news.cnblogs.com/n/613050/" target="_blank">结网：马云商业生涯最后的冒险</a><br> ·  <a href="https://news.cnblogs.com/n/613049/" target="_blank">暴雪或会推出一款「魔兽」题材的《Pokémon Go》</a><br> ·  <a href="https://news.cnblogs.com/n/613048/" target="_blank">斯坦福AI实验室：如何打造基于计算机视觉的智能医院</a><br> ·  <a href="https://news.cnblogs.com/n/613047/" target="_blank">微软亚研院20周年独家撰文：数据智能的现在与未来</a><br> ·  <a href="https://news.cnblogs.com/n/613046/" target="_blank">支付宝信用分750分+ 申请加拿大签证可做财力证明</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+<div id="HistoryToday" class="c_ad_block"></div>
+<script type="text/javascript">
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"><div id="profile_block">昵称：<a href="https://home.cnblogs.com/u/sumuncle/">萨姆大叔</a><br>园龄：<a href="https://home.cnblogs.com/u/sumuncle/" title="入园时间：2015-03-17">3年8个月</a><br>粉丝：<a href="https://home.cnblogs.com/u/sumuncle/followers/">79</a><br>关注：<a href="https://home.cnblogs.com/u/sumuncle/followees/">19</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="follow(&#39;30df79cf-b4cc-e411-b908-9dcfd8948a71&#39;)">+加关注</a></div><script>getFollowStatus('30df79cf-b4cc-e411-b908-9dcfd8948a71')</script></div></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="calendar"><div id="blog-calendar" style=""><table id="blogCalendar" class="Cal" cellspacing="0" cellpadding="0" title="Calendar">
+	<tbody><tr><td colspan="7"><table class="CalTitle" cellspacing="0">
+		<tbody><tr><td class="CalNextPrev"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2018/10/01&#39;);return false;">&lt;</a></td><td align="center">2018年11月</td><td class="CalNextPrev" align="right"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2018/12/01&#39;);return false;">&gt;</a></td></tr>
+	</tbody></table></td></tr><tr><th class="CalDayHeader" align="center" abbr="日" scope="col">日</th><th class="CalDayHeader" align="center" abbr="一" scope="col">一</th><th class="CalDayHeader" align="center" abbr="二" scope="col">二</th><th class="CalDayHeader" align="center" abbr="三" scope="col">三</th><th class="CalDayHeader" align="center" abbr="四" scope="col">四</th><th class="CalDayHeader" align="center" abbr="五" scope="col">五</th><th class="CalDayHeader" align="center" abbr="六" scope="col">六</th></tr><tr><td class="CalOtherMonthDay" align="center">28</td><td class="CalOtherMonthDay" align="center">29</td><td class="CalOtherMonthDay" align="center">30</td><td class="CalOtherMonthDay" align="center">31</td><td align="center">1</td><td align="center">2</td><td class="CalWeekendDay" align="center">3</td></tr><tr><td class="CalWeekendDay" align="center">4</td><td align="center">5</td><td align="center">6</td><td align="center">7</td><td align="center"><a href="https://www.cnblogs.com/sumuncle/archive/2018/11/08.html"><u>8</u></a></td><td align="center">9</td><td class="CalWeekendDay" align="center">10</td></tr><tr><td class="CalWeekendDay" align="center">11</td><td align="center">12</td><td align="center">13</td><td align="center">14</td><td align="center">15</td><td align="center">16</td><td class="CalWeekendDay" align="center">17</td></tr><tr><td class="CalWeekendDay" align="center">18</td><td align="center">19</td><td align="center">20</td><td align="center">21</td><td align="center">22</td><td class="CalTodayDay" align="center">23</td><td class="CalWeekendDay" align="center">24</td></tr><tr><td class="CalWeekendDay" align="center">25</td><td align="center">26</td><td align="center">27</td><td align="center">28</td><td align="center">29</td><td align="center">30</td><td class="CalOtherMonthDay" align="center">1</td></tr><tr><td class="CalOtherMonthDay" align="center">2</td><td class="CalOtherMonthDay" align="center">3</td><td class="CalOtherMonthDay" align="center">4</td><td class="CalOtherMonthDay" align="center">5</td><td class="CalOtherMonthDay" align="center">6</td><td class="CalOtherMonthDay" align="center">7</td><td class="CalOtherMonthDay" align="center">8</td></tr>
+</tbody></table></div><script type="text/javascript">loadBlogDefaultCalendar();</script></div>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"><div id="sidebar_search" class="sidebar-block">
+<div id="sidebar_search" class="mySearch">
+<h3 class="catListTitle">搜索</h3>
+<div id="sidebar_search_box">
+<div id="widget_my_zzk" class="div_my_zzk"><input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk"></div>
+<div id="widget_my_google" class="div_my_zzk"><input type="text" name="google_q" id="google_q" onkeydown="return google_go_enter(event)" class="input_my_zzk">&nbsp;<input onclick="google_go()" type="button" value="谷歌搜索" class="btn_my_zzk"></div>
+</div>
+</div>
+
+</div><div id="sidebar_shortcut" class="sidebar-block">
+<div class="catListLink">
+<h3 class="catListTitle">常用链接</h3>
+<ul>
+<li><a href="https://www.cnblogs.com/sumuncle/p/" title="我的博客的随笔列表">我的随笔</a></li><li><a href="https://www.cnblogs.com/sumuncle/MyComments.html" title="我发表过的评论列表">我的评论</a></li><li><a href="https://www.cnblogs.com/sumuncle/OtherPosts.html" title="我评论过的随笔列表">我的参与</a></li><li><a href="https://www.cnblogs.com/sumuncle/RecentComments.html" title="我的博客的评论列表">最新评论</a></li><li><a href="https://www.cnblogs.com/sumuncle/tag/" title="我的博客的标签列表">我的标签</a></li>
+<li><a id="itemListLink" onclick="this.blur();WarpClass(&#39;itemListLink&#39;, &#39;itemListLin_con&#39;);return false;" href="http://www.cnblogs.com/sumuncle/p/5614079.html#">更多链接</a></li>
+</ul>
+<div id="itemListLin_con" style="display:none;">
+<ul>
+
+</ul>
+</div>
+</div></div><div id="sidebar_toptags" class="sidebar-block">
+<div class="catListTag">
+<h3 class="catListTitle">我的标签</h3>
+<ul>
+<li><a href="https://www.cnblogs.com/sumuncle/tag/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>(14)</li><li><a href="https://www.cnblogs.com/sumuncle/tag/.Net%20C%23/">.Net C#</a>(12)</li><li><a href="https://www.cnblogs.com/sumuncle/tag/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">Python数据分析</a>(10)</li><li><a href="https://www.cnblogs.com/sumuncle/tag/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84/">系统架构</a>(9)</li><li><a href="https://www.cnblogs.com/sumuncle/tag/%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB/">图像识别</a>(8)</li><li><a href="https://www.cnblogs.com/sumuncle/tag/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/">数据挖掘</a>(6)</li><li><a href="https://www.cnblogs.com/sumuncle/tag/%E7%AE%97%E6%B3%95%E4%B8%8E%E9%AB%98%E6%95%B0/">算法与高数</a>(6)</li><li><a href="https://www.cnblogs.com/sumuncle/tag/DevExpress/">DevExpress</a>(5)</li><li><a href="https://www.cnblogs.com/sumuncle/tag/Java/">Java</a>(4)</li><li><a href="https://www.cnblogs.com/sumuncle/tag/Redis/">Redis</a>(4)</li><li><a href="https://www.cnblogs.com/sumuncle/tag/">更多</a></li>
+</ul>
+</div></div><div id="sidebar_recentcomments" class="sidebar-block"><div id="recent_comments_wrap">
+<div class="catListComment">
+<h3 class="catListTitle">最新评论</h3>
+
+	<div id="RecentCommentsBlock"><ul>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/sumuncle/p/6362697.html#4099638">1. Re:在Windows上搭建Git Server</a></li>
+        <li class="recent_comment_body">请问如果用的是eclipse，是不是除了VS2015里面的操作不一样，其他步骤都一样？</li>
+        <li class="recent_comment_author">--鬼魅筱风</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/sumuncle/p/5632032.html#4085064">2. Re:编辑距离算法详解：Levenshtein Distance算法</a></li>
+        <li class="recent_comment_body">谢谢博主的回答，我在网上参考了一份代码，终于明白了。 public static int minDistance(String word1, String word2) { int le......</li>
+        <li class="recent_comment_author">--moreas</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/sumuncle/p/5632032.html#4084866">3. Re:编辑距离算法详解：Levenshtein Distance算法</a></li>
+        <li class="recent_comment_body">@moreas也就是两个字符串比较，三种情况，长度有：st,s=t；注意文章中的三种字符串长度length情况，针对三种情况，进行k步操作或前或后，都存在一步增加或者删除或者比较后替换不替换的操作，这......</li>
+        <li class="recent_comment_author">--萨姆大叔</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/sumuncle/p/5632032.html#4084763">4. Re:编辑距离算法详解：Levenshtein Distance算法</a></li>
+        <li class="recent_comment_body">博主，我看了这篇求编辑距离的文章，有点疑惑。这里 说的可以针对第2种情况，我们只需要在最后将s[i]移除，然后再做这k个操作，所以总共需要k+1个操作。这里怎么理解呢，可以讲的通俗易懂么？</li>
+        <li class="recent_comment_author">--moreas</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/sumuncle/p/6369281.html#4023762">5. Re:OCR技术浅探：特征提取(1)</a></li>
+        <li class="recent_comment_body">为什么我第二步的幂次变换结果和你幂次变换的结果不一致呢？</li>
+        <li class="recent_comment_author">--Leon_zm</li>
+</ul>
+</div>
+</div>
+</div></div><div id="sidebar_topviewedposts" class="sidebar-block"><div id="topview_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">阅读排行榜</h3>
+	<div id="TopViewPostsBlock"><ul><li><a href="https://www.cnblogs.com/sumuncle/p/6362697.html">1. 在Windows上搭建Git Server(23762)</a></li><li><a href="https://www.cnblogs.com/sumuncle/p/5760458.html">2. numpy中的matrix矩阵处理(23236)</a></li><li><a href="https://www.cnblogs.com/sumuncle/p/5719006.html">3. Python 数据分析包：pandas 基础(18431)</a></li><li><a href="https://www.cnblogs.com/sumuncle/p/5647722.html">4. 七种常见的回归分析(17606)</a></li><li><a href="https://www.cnblogs.com/sumuncle/p/5632032.html">5. 编辑距离算法详解：Levenshtein Distance算法(17294)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topcommentedposts" class="sidebar-block"><div id="topfeedback_posts_wrap">
+<div class="catListFeedback">
+<h3 class="catListTitle">评论排行榜</h3>
+	<div id="TopFeedbackPostsBlock"><ul><li><a href="https://www.cnblogs.com/sumuncle/p/5620844.html">1. Dev之ChartControl控件（二）— 绘制多重坐标图形(5)</a></li><li><a href="https://www.cnblogs.com/sumuncle/p/5632032.html">2. 编辑距离算法详解：Levenshtein Distance算法(3)</a></li><li><a href="https://www.cnblogs.com/sumuncle/p/6362697.html">3. 在Windows上搭建Git Server(3)</a></li><li><a href="https://www.cnblogs.com/sumuncle/p/6339758.html">4. .NET开发工具之Excel导出公共类(3)</a></li><li><a href="https://www.cnblogs.com/sumuncle/p/5647722.html">5. 七种常见的回归分析(2)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topdiggedposts" class="sidebar-block"><div id="topdigg_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">推荐排行榜</h3>
+<div id="TopDiggPostsBlock"><ul><li><a href="https://www.cnblogs.com/sumuncle/p/6362697.html">1. 在Windows上搭建Git Server(4)</a></li><li><a href="https://www.cnblogs.com/sumuncle/p/6385436.html">2. 为何梯度反方向是函数值下降最快的方向(2)</a></li><li><a href="https://www.cnblogs.com/sumuncle/p/6373467.html">3. 理解矩阵(2)</a></li><li><a href="https://www.cnblogs.com/sumuncle/p/5620844.html">4. Dev之ChartControl控件（二）— 绘制多重坐标图形(1)</a></li><li><a href="https://www.cnblogs.com/sumuncle/p/5190943.html">5. .NET单元测试(1)</a></li></ul></div>
+</div></div></div></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright ©2018 萨姆大叔
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+<iframe id="google_osd_static_frame_6288985516756" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;" src="./SVM支持向量机算法 - 萨姆大叔 - 博客园_files/saved_resource(1).html"></iframe></body></html>

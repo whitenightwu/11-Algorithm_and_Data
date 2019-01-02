@@ -1,0 +1,57 @@
+anaconda2对应2.7；anaconda3对应3.5；
+
+boost是C++的“准”标准库；caffe中大量代码依赖该库。
+snappy是C++用来压缩/解压缩的库，它比zlib好；caffe数据处理时依赖它。
+
+nVIDIA公司的品牌GTX (GT eXtreme)代表着最强的版本。
+
+imagenet下载时邮箱不能是.com结尾
+
+
+I)alexnet：远古时期。大数据；多GPU；LRN；重叠池化；dropout；非线性激活函数。
+
+II)Googlenet：它有三个loss
+1x1的卷积核你基本可以考虑成是起到降厚度的作用。一般都是将N张map通过1x1得到M张map。N->M起到了降厚度的作用。
+
+文章提出获得高质量模型最保险的做法就是增加模型的深度（层数）或者是其宽度（层核或者神经元数），但是这里一般设计思路的情况下会出现两个缺陷（1.参数太多，容易过拟合，若训练数据集有限；2.网络越大计算复杂度越大，难以应用；3.网络越深，梯度越往后穿越容易消失，难以优化模型）。
+googlenet的主要思想就是围绕这两个思路去做的：
+1.深度，层数更深，文章采用了22层，为了避免上述提到的梯度消失问题，googlenet巧妙的在不同深度处增加了两个loss来保证梯度回传消失的现象。
+2.宽度，增加了多种核1x1，3x3，5x5，还有直接max pooling的，但是如果简单的将这些应用到feature map上的话，concat起来的feature map厚度将会很大，所以在googlenet中为了避免这一现象提出的inception具有如下结构，在3x3前，5x5前，max pooling后分别加上了1x1的卷积核起到了降低feature map厚度的作用。以下是googlenet用的inception可以称之为inception v1。
+综上googlent有两个最重要的创新点分别是为了解决深度和宽度受限来设计的，由于googlenet的两个辅助loss的限制，很多文章拿base model的时候比较偏向与vgg。
+
+另外：网络最后移除了全连接层，用ave-pooling代替；保留了dropout
+
+
+
+III)VGGNet：
+3*3是最小的；5*5=2个3*3,7*7=3个3*3；多个3*3的卷积层比一个大尺寸的卷积层有更多非线性，且参数更少。
+采样multi-scale（多尺度）训练。有两种方法，1.不同尺度的多个分类器；2.一个分类器，但每次数据输入时每张图随机重新放缩。
+根据结构图，我们知道它可以在多GPU上并行就是
+
+IV)squeezenet（压缩）模型：将3*3变1*1；比alexnet参数少50倍；
+
+V)FCN（全卷积）模型：它的概念引申了FRCNN和SSD。它用全卷积代替了全连接；它的最后是在上采样过程中。
+	优点有1.可以接受任意输出大小的输入图像。
+
+VI)R-CNN：目标检测模型。使用了proposals；运用CNN特征提取；对推荐窗口进行SVM分类；bounding box回归。
+
+fast-RCNN:1.为解决测试速度慢，RCNN是将每个建议框拉伸的图像单独通过CNN提取特征，但fast是将整图归一化后直接送入CNN并在输出的feature map上加建议框。
+	2.为解决训练速度慢，RCNN会在SVM分类前将提取的特征存在硬盘上，fast是将特征核区域提取后直接进入loss层。提出了ROI pooling层输出尺寸固定的特征图。
+	用softmax得分类概率；还提出了smooth L1，用smooth L1 loss得边框回归。
+smooth L1是一个分段函数
+
+
+faster-RCNN;采用共享卷积网络组成RPN,使计算能使用GPU，数据限定为300个建议框。其他部分（特征提取、分类、bounding box回归）沿用fast-RCNN。
+
+
+
+
+VII)SSD：在目标检测和实时性有了大的突破（较于fasterRCNN和VGG）。fasterRCNN是先提取建议框再分类；SSD是利用anchor直接分类和bounding box回归。总体上是继承了YOLO，并结合了faster的anchor方法。最后一层是NMS。
+即Non-maximum suppression，非极大值抑制，在object dection中应用非常广泛，简单地说，他就是对一些region proposals（物体的候选框）进行筛选，得到最佳的物体检测位置。
+见书P279
+
+VIII)YOLO：Real-Time Object Detection。最后一层是NMS。
+
+
+
+
