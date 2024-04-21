@@ -1,0 +1,22 @@
+val numRound = Conf.numRound
+
+      //"objective" -> "reg:linear", //定义学习任务及相应的学习目标
+      //"eval_metric" -> "rmse", //校验数据所需要的评价指标  用于做回归
+
+//      val tracker_conf = new TrackerConf(scala.concurrent.duration.Duration.create(500, TimeUnit.SECONDS),"scala");
+
+      val paramMap = List(
+//        "eta" -> 0.15f,
+        "eta" -> xgEta,
+        "max_depth" -> xgMaxDepth, //数的最大深度。缺省值为6 ,取值范围为：[1,∞]
+        "silent" -> 0, //取0时表示打印出运行时信息，取1时表示以缄默方式运行，不打印运行时信息。缺省值为0
+        "objective" -> "binary:logistic", //定义学习任务及相应的学习目标
+        "lambda" -> 2.5,
+//        "ntreelimit" -> 1000,
+        "subsample" -> 0.8,
+        "eval_metric" -> "auc",
+        "scale_pos_weight" -> 6
+//        "tracker_conf" -> tracker_conf,
+//        "nworks" -> 5
+//        "nthread" -> 1 //XGBoost运行时的线程数。缺省值是当前系统可以获得的最大线程数
+      ).toMap

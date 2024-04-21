@@ -1,0 +1,13 @@
+
+# Linear Regression Algorithm(线性回归)
+
+
+# 逻辑回归
+逻辑回归是线性的回归。
+
+
+# 曲线回归
+如果在逻辑回归之前对数据进行变换（取log、差分等等），就变成了曲线回归。
+
+
+# k-Nearest Neighbor Algorithm for Regression(回归k近邻)

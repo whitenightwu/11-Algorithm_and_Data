@@ -1,0 +1,2 @@
+# bfloat16数据类型
+在TensorFlow中除了标准float16之外还创造了一种新的数据类型bfloat16，同样只占用一半的存储空间，但与float32转换更方便，简单讲就是将float32的高16位截取下来即为bfloat16。bfloat16有1bit符号位，8bit指数位，7bit尾数位，其动态范围与float32相当。
