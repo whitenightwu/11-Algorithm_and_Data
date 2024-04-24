@@ -39,7 +39,7 @@ decoder是个小模型，是处理prompt和整张图的embedding。
 ## prompt的encoder模型
 实际上，prompt会经过prompt encoder。并且prompt只在encode网络中，不在decode网络中（flexiv将prompt的encoder模型放到了decode网络中）。
 prompt总共有point，box，mask，text四种，会将其分为三类。point和box可以作为一类使用position encodings, text可以使用CLIP作为encoder, 而mask是一种密集型的prompt，可以使用卷积作为encoder。
-当为point prompt或box prompt时，实际输入网络的是2*（坐标值）+1（label）。例如，point prompt为两个点，实际输入网络的是（2*2+1），即5个数值。
+当为point prompt或box prompt时，实际输入网络的是2*（坐标值）+1（label）。例如，当point prompt为两个点，实际输入网络的是（2*2+1），即5个数值。
 
 label有三种
 points prompt：它的label是[1]
@@ -50,7 +50,7 @@ bbox prompt：它的label是[2, 3]
 -----------------------------------------------------------------------------------------------
 
 ## 官方demo的prompt
-总共有point,box, mask, text四种。由于text prompt效果不太稳定，demo和代码中都没有该部分。 另外还有一种，everything方式，其本质就是grid的point prompt。
+总共有point,box, mask, text四种。由于text prompt效果不太稳定，demo和代码中都没有该部分。另外还有一种，everything方式，其本质就是grid的point prompt。
 everything: 将图片中所有物体的分割都展示出来。本质是使用grid point，由参数POINTS_PER_SIDE控制生成的point数量。
 points prompt：输出的是同一个instance的mask。也就是说即使prompt输入3个点，仍然是输出1个instance。
 bbox prompt：分割box中的物体。必须是2个点。
@@ -78,7 +78,7 @@ vit_H太大了暂时没有放，本机跑不动的那种大
 	对于纯色物体，“prompt为point”可以直接找到物体的instance，但“prompt为bbox”则可能有误检。
 - 最好的是prompt是point+negative point联合使用。
 - 对比“先crop，然后将patch输入SAM”和“将全图和bbox prompt输入SAM”。两者没有太多的差异，但对于小物体，“将全图和bbox prompt输入SAM”明显更好。推荐“将全图和bbox prompt输入SAM”，这更省时间的（整个图只encoding一次）。
-- SAM对于 “由多个色块组成”的物体，分割并不理想。fastpose中也有这种情况。
+- SAM对于“由多个色块组成”的物体，分割并不理想。fastpose中也有这种情况。
 
 ## 用SAM进行自动标注
 使用大模型进行自动标注，例如SAM模型；dino模型。
